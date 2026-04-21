@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Better Living Systems</title>
+  <meta name="description" content="Start an in-home consultation or commercial quote. A real person follows up within one business day. (407) 696-4411." />
+  <meta name="theme-color" content="#141311" />
+  <link rel="icon" type="image/png" href="images/logo-mark-dark.png" />
+  <link rel="apple-touch-icon" href="images/logo-mark-dark.png" />
+  <link rel="canonical" href="https://betterlivingsystems.com/contact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Better Living Systems" />
+  <meta property="og:title" content="Contact | Better Living Systems" />
+  <meta property="og:description" content="Start an in-home consultation or commercial quote. A real person follows up within one business day. (407) 696-4411." />
+  <meta property="og:url" content="https://betterlivingsystems.com/contact" />
+  <meta property="og:image" content="https://betterlivingsystems.com/images/family-home-exterior.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact | Better Living Systems" />
+  <meta name="twitter:description" content="Start an in-home consultation or commercial quote. A real person follows up within one business day. (407) 696-4411." />
+  <meta name="twitter:image" content="https://betterlivingsystems.com/images/family-home-exterior.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css?v=1776732905" />
+  <style>
+    .ch { padding: 80px 0 40px; background: var(--paper); }
+    .ch-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+    .ch-head h1 { font-family: var(--serif); font-size: clamp(56px, 9vw, 160px); line-height: 0.9; letter-spacing: -0.035em; }
+    .ch-head h1 em { color: var(--brass); }
+    .ch-head p { font-size: 17px; color: var(--ink-2); line-height: 1.6; max-width: 42ch; }
+    @media (max-width: 900px) { .ch-head { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* Conversational quote form, two-column layout */
+    .quote { padding: clamp(80px, 10vw, 120px) 0; }
+    .quote-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; }
+
+    .qform {
+      background: var(--ivory);
+      border: 1px solid var(--line);
+      padding: 48px;
+      min-height: 560px;
+      position: relative;
+    }
+    .qprogress {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 48px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .qdot { flex: 1; height: 2px; background: var(--line); border-radius: 2px; transition: background .4s; }
+    .qdot.active { background: var(--brass); }
+    .qdot.done { background: var(--ink); }
+    .qstep-label { margin-top: 16px; color: var(--brass); }
+
+    .qstep { display: none; animation: slide .4s ease; }
+    .qstep.active { display: block; }
+    @keyframes slide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .qask {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .qask em { color: var(--brass); }
+    .qhelp { font-size: 14px; color: var(--ink-soft); margin-bottom: 32px; max-width: 44ch; }
+
+    .qopts { display: flex; flex-direction: column; gap: 12px; }
+    .qopt {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all .25s;
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+    }
+    .qopt:hover { border-color: var(--ink); transform: translateX(4px); }
+    .qopt.selected { border-color: var(--brass); background: rgba(139, 111, 71, 0.06); color: var(--brass); }
+    .qopt .n { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-soft); }
+    .qopt.selected .n { color: var(--brass); }
+
+    .qinput {
+      width: 100%;
+      padding: 20px 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font: inherit;
+      font-size: 16px;
+      color: var(--ink);
+      font-family: inherit;
+      transition: border-color .2s;
+    }
+    .qinput:focus { outline: none; border-color: var(--brass); }
+    textarea.qinput { min-height: 120px; resize: vertical; }
+    .qrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+    .qnav { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+    .qnav-left { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+    .qback { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+    .qback:hover { color: var(--brass); }
+    .qback[disabled] { opacity: 0.3; pointer-events: none; }
+
+    .qsuccess {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+    }
+    .qsuccess.show { display: block; }
+    .qsuccess h3 { font-family: var(--serif); font-size: 48px; line-height: 1; letter-spacing: -0.025em; margin-bottom: 16px; }
+    .qsuccess h3 em { color: var(--brass); }
+    .qsuccess p { font-size: 15px; color: var(--ink-2); line-height: 1.6; max-width: 38ch; margin: 0 auto 32px; }
+    .qsuccess .summary {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .qsuccess .summary div { padding: 6px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 16px; }
+    .qsuccess .summary div:last-child { border: 0; }
+    .qsuccess .summary .k { color: var(--ink-soft); }
+    .qsuccess .summary .v { color: var(--ink); text-align: right; }
+
+    /* Sidebar */
+    .qside {}
+    .qside .eyebrow { margin-bottom: 24px; }
+    .qside h3 { font-family: var(--serif); font-size: 40px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .qside h3 em { color: var(--brass); }
+    .qside p { font-size: 15px; color: var(--ink-2); line-height: 1.6; margin-bottom: 24px; max-width: 36ch; }
+
+    .qcard {
+      padding: 24px;
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+      background: var(--paper);
+    }
+    .qcard .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); margin-bottom: 10px; }
+    .qcard .v { font-family: var(--serif); font-size: 24px; letter-spacing: -0.015em; line-height: 1.2; }
+    .qcard .v-sm { font-size: 14px; color: var(--ink-2); margin-top: 8px; }
+
+    @media (max-width: 900px) {
+      .quote-grid { grid-template-columns: 1fr; gap: 48px; }
+      .qform { padding: 32px 24px; }
+      .qrow { grid-template-columns: 1fr; }
+    }
+
+    /* Bottom map/locations */
+    .locs { padding: clamp(80px, 10vw, 120px) 0; background: var(--ivory); border-top: 1px solid var(--line); }
+    .locs-head { text-align: center; margin-bottom: 64px; }
+    .locs-head h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; }
+    .locs-head h2 em { color: var(--brass); }
+    .locs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .loc {
+      padding: 32px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .loc .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); margin-bottom: 12px; }
+    .loc h4 { font-family: var(--serif); font-size: 24px; letter-spacing: -0.015em; margin-bottom: 12px; }
+    .loc .line { font-size: 14px; color: var(--ink-2); line-height: 1.7; }
+    .loc .hours { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-soft); }
+    @media (max-width: 900px) { .locs-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="contact">
+
+  <div data-nav></div>
+
+  <section class="ch">
+    <div class="wrap">
+      <div class="ch-head">
+        <div>
+          <div class="eyebrow">A conversation, not a form</div>
+          <h1>Tell us <em>what</em><br/>you're protecting.</h1>
+        </div>
+        <p>Six questions. About two minutes. A real person will follow up within one business day to schedule an on-site walk-through, at no cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE FLOW -->
+  <section class="quote">
+    <div class="wrap">
+      <div class="quote-grid">
+        <form class="qform" id="qform" onsubmit="return false;">
+          <div class="qprogress">
+            <div class="qdot active" data-dot="0"></div>
+            <div class="qdot" data-dot="1"></div>
+            <div class="qdot" data-dot="2"></div>
+            <div class="qdot" data-dot="3"></div>
+            <div class="qdot" data-dot="4"></div>
+            <div class="qdot" data-dot="5"></div>
+          </div>
+
+          <!-- Step 0: Which service -->
+          <div class="qstep active" data-step="0">
+            <div class="qask">First, what do you <em>need?</em></div>
+            <div class="qhelp">Select one, or "Not sure" and we'll figure it out together.</div>
+            <div class="qopts">
+              <button type="button" class="qopt" data-field="service" data-value="Security & Automation">
+                <span>Security &amp; Automation</span><span class="n">Ch. 01</span>
+              </button>
+              <button type="button" class="qopt" data-field="service" data-value="Commercial Fire">
+                <span>Commercial Fire Protection</span><span class="n">Ch. 02</span>
+              </button>
+              <button type="button" class="qopt" data-field="service" data-value="Smart Home & Theater">
+                <span>Smart Home &amp; Theater</span><span class="n">Ch. 03</span>
+              </button>
+              <button type="button" class="qopt" data-field="service" data-value="Multiple / not sure">
+                <span>Multiple, or I'm not sure yet</span><span class="n">Let's talk</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 1: Property type -->
+          <div class="qstep" data-step="1">
+            <div class="qask">Is it a <em>home</em> or a <em>business?</em></div>
+            <div class="qhelp">We serve both, the answer just routes you to the right team.</div>
+            <div class="qopts">
+              <button type="button" class="qopt" data-field="property" data-value="Single-family home">
+                <span>Single-family home</span><span class="n">, </span>
+              </button>
+              <button type="button" class="qopt" data-field="property" data-value="Multi-family / HOA">
+                <span>Multi-family or HOA</span><span class="n">, </span>
+              </button>
+              <button type="button" class="qopt" data-field="property" data-value="Small business / office">
+                <span>Small business or office</span><span class="n">, </span>
+              </button>
+              <button type="button" class="qopt" data-field="property" data-value="Large commercial">
+                <span>Large commercial / institutional</span><span class="n">, </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Timeline -->
+          <div class="qstep" data-step="2">
+            <div class="qask">When are you<br/>looking to <em>start?</em></div>
+            <div class="qopts">
+              <button type="button" class="qopt" data-field="timeline" data-value="This week">
+                <span>This week, something isn't working</span><span class="n">Urgent</span>
+              </button>
+              <button type="button" class="qopt" data-field="timeline" data-value="Within a month">
+                <span>Within a month</span><span class="n">Soon</span>
+              </button>
+              <button type="button" class="qopt" data-field="timeline" data-value="Next 3 months">
+                <span>Next 3 months</span><span class="n">Planning</span>
+              </button>
+              <button type="button" class="qopt" data-field="timeline" data-value="Exploring">
+                <span>Just exploring for now</span><span class="n">Research</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Details -->
+          <div class="qstep" data-step="3">
+            <div class="qask">Anything you'd like us<br/>to <em>know</em> in advance?</div>
+            <div class="qhelp">Size of the property, brands you're considering, concerns that woke you up at 3am, anything.</div>
+            <textarea class="qinput" data-field="notes" placeholder="For example: &quot;3,200 sq ft single-story in Windermere, existing ADT we want to replace, interested in Lutron and Frame TVs in the main living area.&quot;"></textarea>
+          </div>
+
+          <!-- Step 4: Contact info -->
+          <div class="qstep" data-step="4">
+            <div class="qask">How should we <em>reach</em> you?</div>
+            <div class="qrow">
+              <input class="qinput" data-field="firstName" placeholder="First name" />
+              <input class="qinput" data-field="lastName" placeholder="Last name" />
+            </div>
+            <div class="qrow">
+              <input class="qinput" data-field="email" type="email" placeholder="Email" />
+              <input class="qinput" data-field="phone" type="tel" placeholder="Phone" />
+            </div>
+            <input class="qinput" data-field="address" placeholder="Property address or city" style="margin-top: 12px;" />
+          </div>
+
+          <!-- Step 5: Preferences -->
+          <div class="qstep" data-step="5">
+            <div class="qask">How do you <em>prefer</em><br/>we follow up?</div>
+            <div class="qopts">
+              <button type="button" class="qopt" data-field="followup" data-value="Phone call">
+                <span>A call, I'd rather talk it through</span><span class="n">Call</span>
+              </button>
+              <button type="button" class="qopt" data-field="followup" data-value="Text message">
+                <span>Text, I'll schedule from there</span><span class="n">SMS</span>
+              </button>
+              <button type="button" class="qopt" data-field="followup" data-value="Email">
+                <span>Email, I'll book a time online</span><span class="n">Email</span>
+              </button>
+              <button type="button" class="qopt" data-field="followup" data-value="Whatever is easiest">
+                <span>Whatever's easiest for you</span><span class="n">Any</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Success -->
+          <div class="qsuccess" id="qsuccess">
+            <div class="eyebrow" style="color: var(--brass); margin-bottom: 32px;">✓ Received</div>
+            <h3>Thank you, <em id="qname">neighbor</em>.</h3>
+            <p>A real person from our Winter Garden office will follow up within one business day.</p>
+            <div class="summary" id="qsummary"></div>
+          </div>
+
+          <div class="qnav" id="qnav">
+            <button type="button" class="qback" id="qback" disabled>← Back</button>
+            <div class="qnav-left"><span id="qstepn">01</span> / 06</div>
+            <button type="button" class="btn" id="qnext">
+              Continue
+              <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+            </button>
+          </div>
+        </form>
+
+        <aside class="qside">
+          <div class="eyebrow">Or, the old-fashioned way</div>
+          <h3>We still pick up <em>the phone.</em></h3>
+          <p>The number below rings a desk in Winter Garden. A real person answers, during hours, after hours, and at 3am if your alarm is going off.</p>
+
+          <div class="qcard">
+            <div class="k">Phone, 24/7</div>
+            <div class="v">(407) 696-4411</div>
+            <div class="v-sm">Mon–Sat 8am–6pm live · After-hours on-call</div>
+          </div>
+          <div class="qcard">
+            <div class="k">Email</div>
+            <div class="v" style="font-size: 20px;">info@betterlivingsystems.com</div>
+            <div class="v-sm">Usually within 2 business hours.</div>
+          </div>
+          <div class="qcard">
+            <div class="k">Office</div>
+            <div class="v" style="font-size: 18px;">Winter Garden, FL</div>
+            <div class="v-sm">Appointments recommended · Walk-ins welcome.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="locs">
+    <div class="wrap">
+      <div class="locs-head">
+        <div class="eyebrow" style="margin-bottom: 20px;">Offices &amp; Response Times</div>
+        <h2>Never more than <em>45 minutes</em> away.</h2>
+      </div>
+      <div class="locs-grid">
+        <div class="loc">
+          <div class="lbl">Headquarters</div>
+          <h4>Winter Garden</h4>
+          <div class="line">
+            Main office &amp; monitoring station<br/>
+            Response: 15–30 min
+          </div>
+          <div class="hours">Mon–Sat · 8am–6pm</div>
+        </div>
+        <div class="loc">
+          <div class="lbl">Orlando, Metro</div>
+          <h4>Downtown dispatch</h4>
+          <div class="line">
+            Dedicated crew for central Orlando<br/>
+            Response: 20–40 min
+          </div>
+          <div class="hours">24/7 emergency</div>
+        </div>
+        <div class="loc">
+          <div class="lbl">Lake County</div>
+          <h4>Clermont</h4>
+          <div class="line">
+            Fire inspection route vehicle<br/>
+            Response: 30–45 min
+          </div>
+          <div class="hours">By scheduled visit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js?v=1776732905"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('qform');
+      const steps = form.querySelectorAll('.qstep');
+      const dots = form.querySelectorAll('.qdot');
+      const back = document.getElementById('qback');
+      const next = document.getElementById('qnext');
+      const stepn = document.getElementById('qstepn');
+      const nav = document.getElementById('qnav');
+      const success = document.getElementById('qsuccess');
+      const data = {};
+      let idx = 0;
+      const TOTAL = steps.length;
+
+      function render() {
+        steps.forEach((s, i) => s.classList.toggle('active', i === idx));
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+          d.classList.toggle('done', i < idx);
+        });
+        stepn.textContent = String(idx + 1).padStart(2, '0');
+        back.toggleAttribute('disabled', idx === 0);
+        next.querySelector(':scope')
+        next.innerHTML = (idx === TOTAL - 1)
+          ? `Send <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>`
+          : `Continue <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>`;
+      }
+
+      // Click handlers for option buttons, select and auto-advance
+      form.querySelectorAll('.qopt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const field = btn.dataset.field;
+          const value = btn.dataset.value;
+          // toggle selection in current step
+          btn.parentElement.querySelectorAll('.qopt').forEach(o => o.classList.remove('selected'));
+          btn.classList.add('selected');
+          data[field] = value;
+          // auto-advance after brief delay
+          setTimeout(() => { if (idx < TOTAL - 1) { idx++; render(); } else { submit(); } }, 260);
+        });
+      });
+
+      // Text inputs
+      form.querySelectorAll('.qinput').forEach(el => {
+        el.addEventListener('input', e => { data[e.target.dataset.field] = e.target.value; });
+      });
+
+      next.addEventListener('click', () => {
+        if (idx < TOTAL - 1) { idx++; render(); }
+        else { submit(); }
+      });
+      back.addEventListener('click', () => { if (idx > 0) { idx--; render(); } });
+
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdyavpn';
+
+      async function submit() {
+        next.setAttribute('disabled', '');
+        const payload = {
+          service: data.service,
+          property: data.property,
+          timeline: data.timeline,
+          followup: data.followup,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          notes: data.notes,
+          _subject: `New BLS inquiry: ${data.service || 'general'}`,
+        };
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error('submit failed: ' + res.status);
+        } catch (err) {
+          console.error(err);
+          alert("Something went wrong sending your inquiry. Please call (407) 696-4411 and we'll take it from there.");
+          next.removeAttribute('disabled');
+          return;
+        }
+        form.querySelectorAll('.qstep').forEach(s => s.classList.remove('active'));
+        form.querySelector('.qprogress').style.display = 'none';
+        nav.style.display = 'none';
+        success.classList.add('show');
+        document.getElementById('qname').textContent = data.firstName || 'neighbor';
+        const summary = document.getElementById('qsummary');
+        const fields = [
+          ['Service', data.service],
+          ['Property', data.property],
+          ['Timeline', data.timeline],
+          ['Follow-up', data.followup],
+          ['Contact', [data.firstName, data.lastName].filter(Boolean).join(' ')],
+          ['Reaching', data.phone || data.email],
+        ];
+        summary.innerHTML = fields.filter(f => f[1]).map(([k,v]) =>
+          `<div><span class="k">${k}</span><span class="v">${v}</span></div>`
+        ).join('');
+      }
+
+      render();
+    })();
+  </script>
+</body>
+</html>

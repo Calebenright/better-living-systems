@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commercial Fire Protection | Better Living Systems</title>
+  <meta name="description" content="Florida-licensed commercial fire alarm, sprinkler, inspection, and monitoring. Code-compliant from permit through annual test." />
+  <meta name="theme-color" content="#141311" />
+  <link rel="icon" type="image/png" href="images/logo-mark-dark.png" />
+  <link rel="apple-touch-icon" href="images/logo-mark-dark.png" />
+  <link rel="canonical" href="https://betterlivingsystems.com/fire" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Better Living Systems" />
+  <meta property="og:title" content="Commercial Fire Protection | Better Living Systems" />
+  <meta property="og:description" content="Florida-licensed commercial fire alarm, sprinkler, inspection, and monitoring. Code-compliant from permit through annual test." />
+  <meta property="og:url" content="https://betterlivingsystems.com/fire" />
+  <meta property="og:image" content="https://betterlivingsystems.com/images/camera-install.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Commercial Fire Protection | Better Living Systems" />
+  <meta name="twitter:description" content="Florida-licensed commercial fire alarm, sprinkler, inspection, and monitoring. Code-compliant from permit through annual test." />
+  <meta name="twitter:image" content="https://betterlivingsystems.com/images/camera-install.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css?v=1776732905" />
+  <style>
+    .ph { padding: 80px 0 0; background: var(--paper); }
+    .ph-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 48px; border-bottom: 1px solid var(--line); gap: 40px; flex-wrap: wrap; }
+    .ph-top .eyebrow::before { content: 'Ch. 02, '; color: var(--ember); }
+    .ph-top h1 { font-family: var(--serif); font-size: clamp(56px, 10vw, 160px); line-height: 0.9; letter-spacing: -0.035em; margin-top: 20px; }
+    .ph-top h1 em { color: var(--ember); }
+    .ph-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); text-align: right; }
+    .ph-meta div + div { margin-top: 8px; }
+    .ph-hero { margin-top: 48px; aspect-ratio: 21/9; position: relative; }
+
+    /* Code compliance strip */
+    .codes {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: 40px var(--gutter);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 48px;
+      align-items: center;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .codes-left { font-family: var(--serif); font-size: 28px; line-height: 1; letter-spacing: -0.015em; }
+    .codes-left em { color: var(--brass-soft); }
+    .codes-middle { display: flex; gap: 48px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,239,230,0.7); flex-wrap: wrap; }
+    .codes-middle span::before { content: '✓ '; color: #5fc97a; }
+    .codes-right { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--brass-2); }
+    @media (max-width: 900px) { .codes { grid-template-columns: 1fr; gap: 24px; text-align: left; } }
+
+    .intro { padding: clamp(80px, 10vw, 140px) 0; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+    .intro-grid h2 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 72px); line-height: 1; letter-spacing: -0.025em; }
+    .intro-grid h2 em { color: var(--ember); }
+    .intro-body p { font-size: 17px; color: var(--ink-2); line-height: 1.7; margin-bottom: 20px; }
+    @media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* Services, list-form */
+    .svcs-list {
+      border-top: 1px solid var(--line);
+    }
+    .svc-item {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 100px 1.2fr 1.5fr auto;
+      gap: 48px;
+      align-items: start;
+      transition: background .3s;
+    }
+    .svc-item:hover { background: var(--ivory); }
+    .svc-item .num { font-family: var(--mono); font-size: 11px; color: var(--ember); letter-spacing: 0.16em; padding-top: 12px; }
+    .svc-item h3 { font-family: var(--serif); font-size: clamp(28px, 3vw, 44px); line-height: 1; letter-spacing: -0.02em; }
+    .svc-item h3 em { color: var(--ember); }
+    .svc-item p { font-size: 15px; color: var(--ink-2); line-height: 1.6; margin-top: 12px; }
+    .svc-item .tags { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: flex; flex-direction: column; gap: 6px; padding-top: 12px; }
+    .svc-item .tags span::before { content: ',  '; color: var(--ember); }
+    .svc-item .arr { padding-top: 12px; color: var(--ink-soft); }
+    @media (max-width: 1000px) {
+      .svc-item { grid-template-columns: 80px 1fr; }
+      .svc-item .tags, .svc-item .arr { display: none; }
+    }
+
+    /* Schedule strip */
+    .sched { background: var(--ivory); padding: clamp(80px, 10vw, 120px) 0; border-top: 1px solid var(--line); }
+    .sched-head { text-align: center; margin-bottom: 64px; }
+    .sched-head h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; }
+    .sched-head h2 em { color: var(--ember); }
+    .cycle {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .cycle-cell { background: var(--paper); padding: 32px; min-height: 180px; }
+    .cycle-cell .when { font-family: var(--serif); font-size: 48px; line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .cycle-cell .when em { color: var(--ember); font-style: normal; font-size: 18px; font-family: var(--mono); letter-spacing: 0.12em; vertical-align: top; margin-left: 4px; }
+    .cycle-cell .what { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px; }
+    .cycle-cell p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+    @media (max-width: 900px) { .cycle { grid-template-columns: 1fr 1fr; } }
+
+    /* Compliance panel */
+    .comp { padding: clamp(100px, 12vw, 160px) 0; background: var(--ink); color: var(--ivory); }
+    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .comp-left h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; margin-bottom: 32px; }
+    .comp-left h2 em { color: var(--brass-soft); }
+    .comp-left p { font-size: 17px; color: rgba(244,239,230,0.75); line-height: 1.7; margin-bottom: 20px; max-width: 52ch; }
+    .doc {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 40px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(244,239,230,0.8);
+    }
+    .doc-head { display: flex; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px dashed rgba(255,255,255,0.15); margin-bottom: 20px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,239,230,0.5); }
+    .doc-row { display: grid; grid-template-columns: 120px 1fr auto; gap: 16px; padding: 8px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); }
+    .doc-row:last-child { border: 0; }
+    .doc-row .k { color: rgba(244,239,230,0.4); }
+    .doc-row .v { color: var(--ivory); }
+    .doc-row .s { color: #5fc97a; font-size: 10px; }
+    @media (max-width: 900px) { .comp-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .ctaband { background: var(--paper); padding: clamp(80px, 10vw, 120px) 0; text-align: center; }
+    .ctaband h2 { font-family: var(--serif); font-size: clamp(40px, 6vw, 96px); line-height: 1; letter-spacing: -0.025em; margin-bottom: 40px; }
+    .ctaband h2 em { color: var(--ember); }
+  </style>
+</head>
+<body data-page="fire">
+
+  <div data-nav></div>
+
+  <section class="ph">
+    <div class="wrap">
+      <div class="ph-top">
+        <div>
+          <div class="eyebrow">Commercial Fire Protection</div>
+          <h1>Code-<em>compliant.</em><br/>On-call. On the book.</h1>
+        </div>
+        <div class="ph-meta">
+          <div>NFPA 72 · NFPA 25 · NFPA 101</div>
+          <div>Florida Licensed</div>
+          <div style="color: var(--ember);">24/7 Dispatch</div>
+        </div>
+      </div>
+      <div class="ph-hero photo tone-dark grain"><picture><source srcset="images/camera-install.webp" type="image/webp"/><img src="images/camera-install.jpg" alt="Commercial install"/></picture></div>
+    </div>
+  </section>
+
+  <div class="codes">
+    <div class="codes-left"><em>Full-service.</em><br/>Start to annual.</div>
+    <div class="codes-middle">
+      <span>Design & Permit</span>
+      <span>Installation</span>
+      <span>Inspection</span>
+      <span>Monitoring</span>
+      <span>Repair</span>
+    </div>
+    <div class="codes-right">Florida Lic.<br/>EF20000123</div>
+  </div>
+
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-grid">
+        <h2 class="reveal">A single firm for the <em>whole lifecycle</em> of your fire system.</h2>
+        <div class="intro-body reveal reveal-delay-2">
+          <p>Fire protection isn't a product. It's a five-year obligation, renewed annually, and then again every quarter for some devices. We handle the whole thing, from engineered drawings and AHJ permit submissions to the semiannual sprinkler inspection and the 24/7 dispatch when something trips at 3am.</p>
+          <p>Because we hold the contract start-to-finish, nothing falls between vendors. Your building is compliant, your binder is current, and your tenants keep working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="svcs-list">
+      <a href="contact.html" class="svc-item">
+        <div class="num">§ 2.1</div>
+        <div>
+          <h3>Fire <em>Alarm Systems</em></h3>
+          <p>Addressable alarm systems designed to code, permitted, installed, and monitored. From tenant fit-outs to high-rise replacements.</p>
+        </div>
+        <div class="tags"><span>Design & Engineering</span><span>AHJ Permit Submission</span><span>Addressable Devices</span><span>Mass Notification</span></div>
+        <svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="contact.html" class="svc-item">
+        <div class="num">§ 2.2</div>
+        <div>
+          <h3>Sprinkler <em>Systems</em></h3>
+          <p>Wet, dry, pre-action, and deluge systems, installed, inspected, and maintained to NFPA 25. We keep the binder current.</p>
+        </div>
+        <div class="tags"><span>New Construction</span><span>Tenant Improvements</span><span>NFPA 25 Inspections</span><span>Backflow Certification</span></div>
+        <svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="contact.html" class="svc-item">
+        <div class="num">§ 2.3</div>
+        <div>
+          <h3>Inspection &amp; <em>Testing</em></h3>
+          <p>Scheduled, documented, AHJ-ready inspections on the cycle your building requires, quarterly, semiannual, and annual.</p>
+        </div>
+        <div class="tags"><span>Annual Alarm Test</span><span>Quarterly Sprinkler</span><span>5-year Internal</span><span>Digital Reports</span></div>
+        <svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="contact.html" class="svc-item">
+        <div class="num">§ 2.4</div>
+        <div>
+          <h3>Emergency &amp; <em>Exit Lighting</em></h3>
+          <p>Installation and maintenance of life-safety lighting. Monthly function tests, 90-minute annual tests, and timely lamp replacement.</p>
+        </div>
+        <div class="tags"><span>Exit Signs</span><span>Egress Lighting</span><span>Battery Testing</span><span>LED Retrofits</span></div>
+        <svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+      <a href="contact.html" class="svc-item">
+        <div class="num">§ 2.5</div>
+        <div>
+          <h3>24/7 <em>Fire Monitoring</em></h3>
+          <p>UL-listed central station monitoring for fire, sprinkler flow, and supervisory signals. Dispatch in seconds, not minutes.</p>
+        </div>
+        <div class="tags"><span>UL-Listed Station</span><span>Cellular + IP Path</span><span>Signal Verification</span><span>Owner Reporting</span></div>
+        <svg class="arr" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="sched">
+    <div class="wrap">
+      <div class="sched-head">
+        <div class="eyebrow" style="margin-bottom: 20px;">The inspection cycle</div>
+        <h2>We <em>track</em> it, you <em>pass</em> it.</h2>
+      </div>
+      <div class="cycle">
+        <div class="cycle-cell">
+          <div class="when">Q1<em>·4</em></div>
+          <div class="what">Quarterly</div>
+          <p>Visual checks of control valves, sprinkler gauges, supervisory signals, and battery voltage.</p>
+        </div>
+        <div class="cycle-cell">
+          <div class="when">Semi<em>·2</em></div>
+          <div class="what">Semiannual</div>
+          <p>Alarm device function test, full flow and tamper switches, and water-flow alarm verification.</p>
+        </div>
+        <div class="cycle-cell">
+          <div class="when">01<em>·yr</em></div>
+          <div class="what">Annual</div>
+          <p>Full fire alarm test. Sprinkler main drain, antifreeze, backflow. 90-minute emergency lighting.</p>
+        </div>
+        <div class="cycle-cell">
+          <div class="when">05<em>·yr</em></div>
+          <div class="what">Cyclical</div>
+          <p>Internal pipe inspection, obstruction investigation, and standpipe hydrostatic testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE DOC -->
+  <section class="comp">
+    <div class="wrap">
+      <div class="comp-grid">
+        <div class="comp-left reveal">
+          <div class="eyebrow" style="color: var(--brass-2); margin-bottom: 24px;">Audit-ready documentation</div>
+          <h2>Your compliance <em>binder</em>, always current.</h2>
+          <p>Every inspection, test, and service visit produces a digital report stamped by a Florida-licensed inspector and archived in your tenant portal. When the AHJ shows up for a site visit, so does your paperwork.</p>
+          <p>We keep a physical binder on site where you want one. We also keep a copy.</p>
+        </div>
+        <div class="doc reveal reveal-delay-2">
+          <div class="doc-head">
+            <span>INSPECTION REPORT · FA-2026-0412</span>
+            <span>BLS.CF</span>
+          </div>
+          <div class="doc-row"><span class="k">Property</span><span class="v">Parker Medical Plaza</span><span class="s">● PASS</span></div>
+          <div class="doc-row"><span class="k">Standard</span><span class="v">NFPA 72 · Annual</span><span class="s">● PASS</span></div>
+          <div class="doc-row"><span class="k">Devices</span><span class="v">142 / 142 tested</span><span class="s">● 100%</span></div>
+          <div class="doc-row"><span class="k">Sprinkler</span><span class="v">Main drain · 74 psi</span><span class="s">● OK</span></div>
+          <div class="doc-row"><span class="k">Batteries</span><span class="v">13.8v · Load tested</span><span class="s">● OK</span></div>
+          <div class="doc-row"><span class="k">Emergency</span><span class="v">90-min test complete</span><span class="s">● OK</span></div>
+          <div class="doc-row"><span class="k">Inspector</span><span class="v">R. Castaneda, FLS-07841</span><span class="s">● Cert.</span></div>
+          <div class="doc-row"><span class="k">Filed</span><span class="v">AHJ · Orange County</span><span class="s">● Filed</span></div>
+          <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed rgba(255,255,255,0.15); color: rgba(244,239,230,0.4); font-size: 10px; letter-spacing: 0.12em;">
+            REPORT STORED · 7-YEAR ARCHIVE · TENANT PORTAL
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom: 32px;">Property assessment · complimentary</div>
+      <h2>Inherited a building<br/>with a <em>binder from 2011?</em></h2>
+      <p class="body-l" style="margin: 0 auto 40px; text-align: center;">We'll audit your current system against code, then tell you what's urgent, what's deferrable, and what the AHJ is likely to flag.</p>
+      <a class="btn btn-brass" href="contact.html">
+        Request an audit
+        <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js?v=1776732905"></script>
+</body>
+</html>

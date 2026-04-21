@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Home & Theater | Better Living Systems</title>
+  <meta name="description" content="Authorized Lutron, Samsung Frame, and Sonos integrator. Whole-home audio, automated shades, and dedicated theater design." />
+  <meta name="theme-color" content="#141311" />
+  <link rel="icon" type="image/png" href="images/logo-mark-dark.png" />
+  <link rel="apple-touch-icon" href="images/logo-mark-dark.png" />
+  <link rel="canonical" href="https://betterlivingsystems.com/smart-home" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Better Living Systems" />
+  <meta property="og:title" content="Smart Home & Theater | Better Living Systems" />
+  <meta property="og:description" content="Authorized Lutron, Samsung Frame, and Sonos integrator. Whole-home audio, automated shades, and dedicated theater design." />
+  <meta property="og:url" content="https://betterlivingsystems.com/smart-home" />
+  <meta property="og:image" content="https://betterlivingsystems.com/images/living-room-tv.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Smart Home & Theater | Better Living Systems" />
+  <meta name="twitter:description" content="Authorized Lutron, Samsung Frame, and Sonos integrator. Whole-home audio, automated shades, and dedicated theater design." />
+  <meta name="twitter:image" content="https://betterlivingsystems.com/images/living-room-tv.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css?v=1776732905" />
+  <style>
+    .ph { padding: 80px 0 0; background: var(--paper); }
+    .ph-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 48px; border-bottom: 1px solid var(--line); gap: 40px; flex-wrap: wrap; }
+    .ph-top .eyebrow::before { content: 'Ch. 03, '; color: var(--brass); }
+    .ph-top h1 { font-family: var(--serif); font-size: clamp(56px, 10vw, 160px); line-height: 0.9; letter-spacing: -0.035em; margin-top: 20px; }
+    .ph-top h1 em { color: var(--brass); }
+    .ph-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); text-align: right; }
+    .ph-meta div + div { margin-top: 8px; }
+    .ph-hero { margin-top: 48px; aspect-ratio: 21/9; position: relative; }
+
+    /* Dealer credentials */
+    .dealers {
+      padding: 48px var(--gutter);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: var(--max);
+      margin: 0 auto;
+      border-bottom: 1px solid var(--line);
+    }
+    .dealers-lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+    .dealers-logos {
+      display: flex;
+      gap: 64px;
+      align-items: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--ink);
+      flex-wrap: wrap;
+    }
+    .dealers-logos .dot { color: var(--brass); font-style: normal; }
+
+    /* Intro */
+    .intro { padding: clamp(80px, 10vw, 140px) 0; }
+    .intro h2 { font-family: var(--serif); font-size: clamp(48px, 7vw, 120px); line-height: 0.98; letter-spacing: -0.03em; max-width: 18ch; margin: 0 auto; text-align: center; }
+    .intro h2 em { color: var(--brass); }
+    .intro p { font-size: 18px; color: var(--ink-2); line-height: 1.7; max-width: 54ch; margin: 40px auto 0; text-align: center; }
+
+    /* Feature rows, alternating */
+    .feat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--line);
+      min-height: 560px;
+    }
+    .feat:nth-child(even) { direction: rtl; }
+    .feat:nth-child(even) > * { direction: ltr; }
+    .feat-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .feat-img .img-ph { width: 100%; height: 100%; min-height: 500px; }
+    .feat-body {
+      padding: clamp(60px, 8vw, 120px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--paper);
+    }
+    .feat:nth-child(even) .feat-body { background: var(--ivory); }
+    .feat-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--brass); margin-bottom: 24px; }
+    .feat h3 { font-family: var(--serif); font-size: clamp(40px, 5vw, 80px); line-height: 0.98; letter-spacing: -0.025em; margin-bottom: 24px; }
+    .feat h3 em { color: var(--brass); }
+    .feat p { font-size: 16px; color: var(--ink-2); line-height: 1.7; max-width: 46ch; margin-bottom: 20px; }
+    .feat-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .feat-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; }
+    @media (max-width: 900px) {
+      .feat { grid-template-columns: 1fr; }
+      .feat:nth-child(even) { direction: ltr; }
+      .feat-img .img-ph { min-height: 320px; }
+    }
+
+    /* Dark theater feature */
+    .theater {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: clamp(100px, 12vw, 180px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .theater::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background: radial-gradient(ellipse at center, rgba(139, 111, 71, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+    .theater-inner { position: relative; text-align: center; }
+    .theater h2 { font-family: var(--serif); font-size: clamp(56px, 9vw, 140px); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 32px; }
+    .theater h2 em { color: var(--brass-soft); }
+    .theater p { font-size: 18px; color: rgba(244,239,230,0.75); line-height: 1.7; max-width: 48ch; margin: 0 auto 56px; }
+    .theater-screen {
+      max-width: 1100px;
+      margin: 0 auto;
+      aspect-ratio: 21/9;
+      background: var(--ink-2);
+      border: 1px solid rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .theater-screen .img-ph { border: 0; }
+    .theater-specs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      max-width: 1100px;
+      margin: 1px auto 0;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-top: 0;
+    }
+    .tspec { background: var(--ink); padding: 28px 24px; text-align: left; }
+    .tspec .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-2); margin-bottom: 8px; }
+    .tspec .v { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; }
+    @media (max-width: 700px) { .theater-specs { grid-template-columns: 1fr 1fr; } }
+
+    /* Room designer preview */
+    .roomd { padding: clamp(80px, 10vw, 140px) 0; background: var(--paper); }
+    .roomd-head { text-align: center; margin-bottom: 64px; }
+    .roomd-head h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; }
+    .roomd-head h2 em { color: var(--brass); }
+    .rooms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .room-card {
+      background: var(--ivory);
+      border: 1px solid var(--line);
+      padding: 32px;
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all .3s;
+      cursor: pointer;
+    }
+    .room-card:hover { background: var(--paper); border-color: var(--ink); transform: translateY(-4px); }
+    .room-card .top { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--brass); text-transform: uppercase; }
+    .room-card .name { font-family: var(--serif); font-size: 36px; line-height: 1; letter-spacing: -0.02em; }
+    .room-card .name em { color: var(--brass); display: block; font-size: 18px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; font-style: normal; margin-top: 8px; color: var(--ink-soft); }
+    .room-card ul { list-style: none; font-size: 13px; color: var(--ink-soft); display: flex; flex-direction: column; gap: 6px; }
+    .room-card ul li::before { content: ',  '; color: var(--brass); }
+    @media (max-width: 900px) { .rooms-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .rooms-grid { grid-template-columns: 1fr; } }
+
+    .ctaband { background: var(--ivory); padding: clamp(80px, 10vw, 120px) 0; text-align: center; border-top: 1px solid var(--line); }
+    .ctaband h2 { font-family: var(--serif); font-size: clamp(40px, 6vw, 96px); line-height: 1; letter-spacing: -0.025em; margin-bottom: 40px; }
+    .ctaband h2 em { color: var(--brass); }
+  </style>
+</head>
+<body data-page="smart">
+
+  <div data-nav></div>
+
+  <section class="ph">
+    <div class="wrap">
+      <div class="ph-top">
+        <div>
+          <div class="eyebrow">Smart Home &amp; Theater</div>
+          <h1>Rooms that look<br/>like <em>rooms</em>, not<br/>product demos.</h1>
+        </div>
+        <div class="ph-meta">
+          <div>Authorized Dealer</div>
+          <div>Lutron · Samsung · Sonos</div>
+          <div style="color: var(--brass);">Integrated Systems</div>
+        </div>
+      </div>
+      <div class="ph-hero photo tone-warm grain"><picture><source srcset="images/living-room-tv.webp" type="image/webp"/><img src="images/living-room-tv.jpg" alt="Smart living room"/></picture></div>
+    </div>
+  </section>
+
+  <div class="dealers">
+    <div class="dealers-lbl">Authorized dealer<br/>&amp; certified installer</div>
+    <div class="dealers-logos">
+      <span>Lutron<span class="dot">.</span></span>
+      <span>Samsung <em>Frame</em></span>
+      <span>Sonos<span class="dot">.</span></span>
+      <span>Control4</span>
+      <span>Hunter Douglas</span>
+    </div>
+  </div>
+
+  <section class="intro">
+    <div class="wrap">
+      <h2 class="reveal">The best technology<br/>is the technology you <em>don't see.</em></h2>
+      <p class="reveal reveal-delay-2">We design and install whole-home systems for homeowners who want the performance without the tangle, invisible speakers, recessed shades, keypads that replace eight switches with one. All tuned, calibrated, and integrated into a single app.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <article class="feat">
+      <div class="feat-img"><div class="photo tone-warm grain" style="width:100%;height:100%;min-height:500px;"><picture><source srcset="images/wall-thermostat.webp" type="image/webp"/><img src="images/wall-thermostat.jpg" alt="Lutron keypad"/></picture></div></div>
+      <div class="feat-body">
+        <div class="feat-num">§ 3.1, Lighting</div>
+        <h3>Lutron lighting,<br/><em>properly specified.</em></h3>
+        <p>Eight switches, one keypad. Dimmers that don't buzz. Scenes that know sunset. We design Lutron RadioRA 3 and HomeWorks systems, then walk your electrician through the load schedule so nothing flickers.</p>
+        <p>As an authorized dealer, our team is factory-trained and commissioned.</p>
+        <div class="feat-tags">
+          <span class="feat-tag">RadioRA 3</span>
+          <span class="feat-tag">HomeWorks QSX</span>
+          <span class="feat-tag">Palladiom keypads</span>
+          <span class="feat-tag">Casέta retrofit</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="feat">
+      <div class="feat-img"><div class="photo tone-warm grain" style="width:100%;height:100%;min-height:500px;"><picture><source srcset="images/living-room-tv.webp" type="image/webp"/><img src="images/living-room-tv.jpg" alt="Frame TV"/></picture></div></div>
+      <div class="feat-body">
+        <div class="feat-num">§ 3.2, Display</div>
+        <h3>Samsung <em>Frame TV.</em><br/>Flush, not floating.</h3>
+        <p>We recess the box into the wall so the Frame sits flat like art, no gap, no bevel, no visible cable. The One Connect box lives in the nearest closet. You pick the bezel. We mat the screen.</p>
+        <p>We also calibrate. Out of the box, it's a department store. In our hands, it's a gallery.</p>
+        <div class="feat-tags">
+          <span class="feat-tag">Recessed mounts</span>
+          <span class="feat-tag">Bezel selection</span>
+          <span class="feat-tag">ISF calibration</span>
+          <span class="feat-tag">Art Mode curation</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="feat">
+      <div class="feat-img"><div class="photo tone-warm grain" style="width:100%;height:100%;min-height:500px;"><picture><source srcset="images/modern-interior.webp" type="image/webp"/><img src="images/modern-interior.jpg" alt="Whole-home audio"/></picture></div></div>
+      <div class="feat-body">
+        <div class="feat-num">§ 3.3, Audio</div>
+        <h3>Whole-home <em>audio</em>,<br/>speakers you can't point to.</h3>
+        <p>In-ceiling, in-wall, or invisible, plastered directly into drywall. We tune each room with a calibration mic and Sonos or Control4 distribution, so a dinner party sounds the same as a yoga session.</p>
+        <div class="feat-tags">
+          <span class="feat-tag">In-wall / in-ceiling</span>
+          <span class="feat-tag">Invisible speakers</span>
+          <span class="feat-tag">Outdoor audio</span>
+          <span class="feat-tag">Zoned control</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="feat">
+      <div class="feat-img"><div class="photo tone-warm grain" style="width:100%;height:100%;min-height:500px;"><picture><source srcset="images/empty-modern.webp" type="image/webp"/><img src="images/empty-modern.jpg" alt="Automated shades"/></picture></div></div>
+      <div class="feat-body">
+        <div class="feat-num">§ 3.4, Shades</div>
+        <h3>Automated <em>shades</em>,<br/>that behave like they're hand-drawn.</h3>
+        <p>Lutron Sivoia QS and Hunter Douglas motorized treatments, programmed to your sun angle, your schedule, and your mood. Pocketed headrails. No dangling cords. No whirring.</p>
+        <div class="feat-tags">
+          <span class="feat-tag">Lutron Sivoia</span>
+          <span class="feat-tag">Hunter Douglas</span>
+          <span class="feat-tag">Solar tracking</span>
+          <span class="feat-tag">Pocketed valances</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- THEATER -->
+  <section class="theater">
+    <div class="wrap theater-inner">
+      <div class="eyebrow" style="color: var(--brass-2); margin-bottom: 24px;">§ 3.5, Home Theater</div>
+      <h2>Cinema, <em>specified.</em></h2>
+      <p>From media-room retrofits to dedicated theaters with riser seating and acoustic treatment. We spec, install, and calibrate, with a cinema tuner who measures the room.</p>
+      <div class="theater-screen"><div class="photo tone-dark grain" style="width:100%;height:100%;"><picture><source srcset="images/theater-dark.webp" type="image/webp"/><img src="images/theater-dark.jpg" alt="Home theater"/></picture></div></div>
+      <div class="theater-specs">
+        <div class="tspec"><div class="k">Projection</div><div class="v">Sony 4K Laser</div></div>
+        <div class="tspec"><div class="k">Sound</div><div class="v">7.2.4 Atmos</div></div>
+        <div class="tspec"><div class="k">Acoustic</div><div class="v">Panels + bass traps</div></div>
+        <div class="tspec"><div class="k">Control</div><div class="v">Single remote</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOM CARDS -->
+  <section class="roomd">
+    <div class="wrap">
+      <div class="roomd-head">
+        <div class="eyebrow" style="margin-bottom: 20px;">Packages by room</div>
+        <h2>Plan <em>one room</em> or the<br/>whole house.</h2>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card">
+          <div class="top">Starter · $</div>
+          <div class="name">Kitchen <em>& Great Room</em></div>
+          <ul>
+            <li>Lutron keypads (4)</li>
+            <li>Ceiling audio · 4 zones</li>
+            <li>Frame TV (one)</li>
+            <li>Two motorized shades</li>
+          </ul>
+        </div>
+        <div class="room-card">
+          <div class="top">Signature · $$</div>
+          <div class="name">Main <em>Living</em></div>
+          <ul>
+            <li>Lutron HomeWorks</li>
+            <li>Audio · 8 zones</li>
+            <li>Frame TVs (up to 3)</li>
+            <li>Shades · front of house</li>
+            <li>Smart-home app</li>
+          </ul>
+        </div>
+        <div class="room-card">
+          <div class="top">Whole-home · $$$</div>
+          <div class="name">Complete <em>Integration</em></div>
+          <ul>
+            <li>HomeWorks QSX</li>
+            <li>Audio every room</li>
+            <li>Dedicated theater</li>
+            <li>All windows motorized</li>
+            <li>Security + climate</li>
+            <li>24/7 support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom: 32px;">Design consultation · complimentary</div>
+      <h2>Start with<br/>one <em>beautiful</em> room.</h2>
+      <a class="btn btn-brass" href="contact.html">
+        Plan my room
+        <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js?v=1776732905"></script>
+</body>
+</html>

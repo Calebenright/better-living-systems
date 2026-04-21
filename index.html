@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Better Living Systems — Security, Fire & Smart Home in Central Florida since 1979</title>
+  <meta name="description" content="Family-owned Central Florida firm installing alarm, camera, fire, and smart-home systems since 1979. Orlando and Winter Garden. Licensed, UL-monitored, in-house crews." />
+  <meta name="theme-color" content="#141311" />
+  <link rel="icon" type="image/png" href="images/logo-mark-dark.png" />
+  <link rel="apple-touch-icon" href="images/logo-mark-dark.png" />
+  <link rel="canonical" href="https://betterlivingsystems.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Better Living Systems" />
+  <meta property="og:title" content="Better Living Systems — Security, Fire & Smart Home in Central Florida since 1979" />
+  <meta property="og:description" content="Family-owned Central Florida firm installing alarm, camera, fire, and smart-home systems since 1979. Orlando and Winter Garden. Licensed, UL-monitored, in-house crews." />
+  <meta property="og:url" content="https://betterlivingsystems.com/" />
+  <meta property="og:image" content="https://betterlivingsystems.com/images/family-home-exterior.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Better Living Systems — Security, Fire & Smart Home in Central Florida since 1979" />
+  <meta name="twitter:description" content="Family-owned Central Florida firm installing alarm, camera, fire, and smart-home systems since 1979. Orlando and Winter Garden. Licensed, UL-monitored, in-house crews." />
+  <meta name="twitter:image" content="https://betterlivingsystems.com/images/family-home-exterior.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://betterlivingsystems.com/#org",
+  "name": "Better Living Systems",
+  "description": "Family-owned security, fire protection, and smart home systems firm serving Central Florida since 1979.",
+  "url": "https://betterlivingsystems.com",
+  "telephone": "+1-407-696-4411",
+  "email": "info@betterlivingsystems.com",
+  "image": "https://betterlivingsystems.com/images/family-home-exterior.jpg",
+  "logo": "https://betterlivingsystems.com/images/logo-mark-dark.png",
+  "foundingDate": "1979",
+  "priceRange": "$$-$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Winter Garden",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Orlando" },
+    { "@type": "City", "name": "Winter Garden" },
+    { "@type": "AdministrativeArea", "name": "Central Florida" }
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  }],
+  "sameAs": []
+}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css?v=1776732905" />
+  <style>
+    /* ------- Home-specific ------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--paper);
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      min-height: 92vh;
+    }
+    .hero-copy {
+      position: relative;
+      padding: clamp(72px, 10vh, 140px) clamp(32px, 5vw, 88px) clamp(48px, 6vh, 80px);
+      display: flex; flex-direction: column; justify-content: space-between;
+      border-right: 1px solid var(--line);
+      gap: 40px;
+    }
+    .hero-rule {
+      width: 56px; height: 1px; background: var(--brass);
+      margin-bottom: 28px;
+    }
+    .hero-masthead {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      gap: 16px;
+    }
+    .hero-masthead .vol { color: var(--brass); }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(56px, 7.2vw, 120px);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      margin: 0;
+    }
+    .hero h1 .l2 { font-style: italic; color: var(--brass); display: block; }
+    .hero-lede {
+      max-width: 42ch;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink-2);
+      margin-top: 28px;
+    }
+    .hero-lede em { font-style: italic; font-family: var(--serif); font-size: 19px; color: var(--ink); }
+    .hero-ctas {
+      display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .hero-ctas .mini {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+      transition: color .3s, border-color .3s;
+    }
+    .hero-ctas .mini:hover { color: var(--brass); border-color: var(--brass); }
+    .hero-footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .hero-footer-stat { text-align: right; }
+    .hero-footer-stat .num { font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.02em; color: var(--ink); text-transform: none; display: block; }
+    .hero-footer-stat .num em { color: var(--brass); font-style: normal; }
+    .hero-footer-stat .lbl { margin-top: 8px; display: block; }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .hero-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      will-change: transform;
+      filter: saturate(0.92) contrast(1.02);
+    }
+    .hero-media::after {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(20,19,17,0.1) 0%, transparent 25%, transparent 65%, rgba(20,19,17,0.35) 100%),
+        linear-gradient(90deg, rgba(20,19,17,0.12) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .hero-caption {
+      position: absolute;
+      left: 32px; bottom: 32px;
+      z-index: 3;
+      background: rgba(244, 239, 230, 0.94);
+      backdrop-filter: blur(8px);
+      padding: 22px 26px 20px;
+      border: 1px solid rgba(139, 111, 71, 0.22);
+      max-width: 340px;
+    }
+    .hero-caption .cap-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); margin-bottom: 10px; }
+    .hero-caption .cap-title { font-family: var(--serif); font-size: 22px; line-height: 1.25; color: var(--ink); margin-bottom: 8px; font-style: italic; }
+    .hero-caption .cap-meta { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+    .hero-badge {
+      position: absolute;
+      right: 36px; top: 36px;
+      z-index: 3;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      width: 124px; height: 124px;
+      border-radius: 50%;
+      background: var(--brass);
+      color: var(--ivory);
+      transform: rotate(-6deg);
+      box-shadow: 0 24px 50px -18px rgba(0,0,0,0.5);
+      letter-spacing: 0.05em;
+    }
+    .hero-badge .est { font-family: var(--mono); font-size: 8px; letter-spacing: 0.28em; opacity: 0.85; text-transform: uppercase; }
+    .hero-badge .yr { font-family: var(--serif); font-size: 38px; line-height: 1; margin-top: 6px; letter-spacing: -0.01em; }
+    .hero-badge .sub { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.22em; margin-top: 8px; opacity: 0.85; text-align: center; padding: 0 14px; line-height: 1.4; text-transform: uppercase; }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-copy { padding: 72px 24px 48px; border-right: none; border-bottom: 1px solid var(--line); }
+      .hero-media { aspect-ratio: 4/3; }
+    }
+    @media (max-width: 600px) {
+      .hero-badge { width: 84px; height: 84px; right: 16px; top: 16px; }
+      .hero-badge .yr { font-size: 26px; }
+      .hero-badge .est { font-size: 7px; }
+      .hero-badge .sub { font-size: 6.5px; padding: 0 8px; }
+      .hero-caption { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+      .hero-footer { grid-template-columns: 1fr; }
+      .hero-footer-stat { text-align: left; }
+    }
+
+    /* ---- Chapter selector ---- */
+    .chapters { background: var(--ink); color: var(--ivory); padding: 0; }
+    .chapters-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 80px var(--gutter) 48px;
+      max-width: var(--max);
+      margin: 0 auto;
+      gap: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .chapters-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 96px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      max-width: 14ch;
+    }
+    .chapters-head h2 em { color: var(--brass-soft); }
+    .chapters-head p {
+      font-size: 16px;
+      color: rgba(244, 239, 230, 0.7);
+      max-width: 36ch;
+      line-height: 1.55;
+    }
+    .chapter-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .chapter {
+      padding: 64px var(--gutter) 56px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: background .5s ease;
+    }
+    .chapter:last-child { border-right: none; }
+    .chapter:hover { background: rgba(139, 111, 71, 0.08); }
+    .chapter-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--brass-2);
+      margin-bottom: 48px;
+    }
+    .chapter-title {
+      font-family: var(--serif);
+      font-size: 48px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .chapter-title em { color: var(--brass-soft); }
+    .chapter-desc {
+      font-size: 15px;
+      color: rgba(244, 239, 230, 0.7);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      flex: 1;
+    }
+    .chapter-items {
+      list-style: none;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244, 239, 230, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .chapter-items li::before { content: ',  '; color: var(--brass-2); margin-right: 6px; }
+    .chapter-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-2);
+      align-self: flex-start;
+    }
+    .chapter-cta .arr { width: 24px; height: 1px; background: currentColor; transition: width .3s; }
+    .chapter:hover .chapter-cta .arr { width: 48px; }
+    @media (max-width: 900px) {
+      .chapter-list { grid-template-columns: 1fr; }
+      .chapter { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); min-height: auto; }
+      .chapters-head { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ---- Manifesto ---- */
+    .manifesto {
+      padding: clamp(100px, 14vw, 200px) 0;
+      background: var(--paper);
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .manifesto-text {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .manifesto-text em { color: var(--brass); }
+    .manifesto-text .dim-line { color: var(--line); }
+    .manifesto-aside {
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    @media (max-width: 900px) {
+      .manifesto-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ---- Index strip (what we do) ---- */
+    .index-strip {
+      background: var(--ivory);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .index-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 2fr 1fr 120px;
+      gap: 32px;
+      padding: 28px var(--gutter);
+      max-width: var(--max);
+      margin: 0 auto;
+      align-items: center;
+      border-bottom: 1px solid var(--line-soft);
+      transition: background .3s;
+    }
+    .index-row:last-child { border-bottom: none; }
+    .index-row:hover { background: var(--paper); }
+    .index-num { font-family: var(--mono); font-size: 11px; color: var(--brass); letter-spacing: 0.14em; }
+    .index-name {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.4vw, 36px);
+      line-height: 1;
+      letter-spacing: -0.015em;
+    }
+    .index-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+    .index-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+    .index-row .arr-icon { justify-self: end; width: 16px; height: 16px; color: var(--ink-soft); }
+    .index-row:hover .arr-icon { color: var(--brass); }
+    @media (max-width: 900px) {
+      .index-row { grid-template-columns: 60px 1fr 24px; gap: 16px; }
+      .index-row .index-desc, .index-row .index-tag { display: none; }
+    }
+
+    /* ---- Story ---- */
+    .story {
+      padding: clamp(100px, 12vw, 180px) 0;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-img {
+      aspect-ratio: 4/5;
+      position: relative;
+    }
+    .story-years {
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      background: var(--paper);
+      padding: 24px 32px;
+      border: 1px solid var(--line);
+      z-index: 2;
+    }
+    .story-years .big { font-family: var(--serif); font-size: 72px; line-height: 0.9; letter-spacing: -0.03em; }
+    .story-years .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-top: 8px; }
+    .story-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      margin-bottom: 32px;
+    }
+    .story-body h2 em { color: var(--brass); }
+    .story-body p { font-size: 17px; color: var(--ink-2); line-height: 1.7; margin-bottom: 20px; max-width: 52ch; }
+    .story-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .story-stat .num { font-family: var(--serif); font-size: 48px; line-height: 1; letter-spacing: -0.02em; }
+    .story-stat .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-top: 8px; }
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 64px; }
+      .story-years { right: 16px; bottom: -24px; }
+    }
+
+    /* ---- Testimonials ---- */
+    .quotes {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: clamp(100px, 12vw, 160px) 0;
+    }
+    .quotes-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 80px;
+      gap: 40px;
+    }
+    .quotes-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+    }
+    .quotes-head h2 em { color: var(--brass-soft); }
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .quote {
+      background: var(--ink);
+      padding: 56px 48px;
+    }
+    .quote-mark { font-family: var(--serif); font-size: 64px; color: var(--brass); line-height: 0.5; margin-bottom: 24px; }
+    .quote-text { font-family: var(--serif); font-size: 24px; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 32px; color: var(--ivory); }
+    .quote-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244, 239, 230, 0.55);
+    }
+    .quote-meta strong { color: var(--brass-2); font-weight: 500; }
+    @media (max-width: 800px) {
+      .quotes-grid { grid-template-columns: 1fr; }
+      .quotes-head { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ---- Partners marquee ---- */
+    .partners-head {
+      padding: 80px var(--gutter) 40px;
+      max-width: var(--max);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .partners-head h3 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 3.6vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ---- CTA ---- */
+    .cta {
+      background: var(--paper);
+      padding: clamp(100px, 14vw, 180px) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(56px, 9vw, 140px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    .cta h2 em { color: var(--brass); }
+    .cta-sub {
+      font-size: 18px;
+      color: var(--ink-soft);
+      max-width: 44ch;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body data-page="home">
+
+  <div data-nav></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div>
+        <div class="hero-rule"></div>
+        <div class="hero-masthead">
+          <span>Better Living Systems</span>
+          <span>Orlando · Winter Garden</span>
+        </div>
+        <h1 class="reveal" style="margin-top: 48px;">
+          A family
+          <span class="l2">looks after</span>
+          your family.
+        </h1>
+        <p class="hero-lede reveal reveal-delay-2">
+          <em>Three generations.</em> One Central Florida family, quietly keeping homes and businesses safe, smart, and still, since 1979.
+        </p>
+        <div class="hero-ctas reveal reveal-delay-2">
+          <a class="btn" href="contact.html">
+            Begin a consultation
+            <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+          </a>
+          <a class="mini" href="about.html">Our story</a>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <div>
+          <div style="margin-bottom: 8px;">Practices</div>
+          <div style="color: var(--ink); font-family: var(--serif); font-size: 18px; text-transform: none; letter-spacing: -0.005em; line-height: 1.4;">Security · Fire · Smart Home</div>
+        </div>
+        <div class="hero-footer-stat">
+          <span class="num">47<em>yr</em></span>
+          <span class="lbl">On call · same family</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-media reveal" data-parallax="0.06">
+      <picture><source srcset="images/family-home-exterior.webp" type="image/webp"/><img src="images/family-home-exterior.jpg" alt="A family stepping out of their home"/></picture>
+      <div class="hero-badge">
+        <span class="est">Est.</span>
+        <span class="yr">1979</span>
+        <span class="sub">Orlando, FL</span>
+      </div>
+      <figure class="hero-caption">
+        <div class="cap-num">Plate No. 01</div>
+        <div class="cap-title">"A home, tended to."</div>
+        <div class="cap-meta">Residence, Winter Garden · 2026</div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- INDEX STRIP -->
+  <section class="index-strip">
+    <div class="index-row">
+      <div class="index-num">01</div>
+      <div class="index-name">Security &amp; Automation</div>
+      <div class="index-desc">Alarms, cameras, access control, and 24/7 monitoring, for homes and businesses.</div>
+      <div class="index-tag">Residential · Commercial</div>
+      <a href="security.html" class="arr-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+    <div class="index-row">
+      <div class="index-num">02</div>
+      <div class="index-name">Commercial Fire</div>
+      <div class="index-desc">Code-compliant alarm, sprinkler, and inspection services for commercial properties.</div>
+      <div class="index-tag">Commercial</div>
+      <a href="fire.html" class="arr-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+    <div class="index-row">
+      <div class="index-num">03</div>
+      <div class="index-name">Smart Home &amp; Theater</div>
+      <div class="index-desc">Lutron, Samsung Frame, surround sound, automated shades, and theater design.</div>
+      <div class="index-tag">Residential</div>
+      <a href="smart-home.html" class="arr-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="wrap">
+      <div class="manifesto-grid">
+        <div class="manifesto-text reveal">
+          A home is a quiet thing. <em>Our work</em>, sensors, sprinklers, speakers, shades, <span class="dim-line">is meant to disappear behind the life it protects.</span> We install it with that intention.
+        </div>
+        <aside class="manifesto-aside reveal reveal-delay-2">
+          <div class="eyebrow" style="margin-bottom: 24px;">On craft</div>
+          <p class="body-m">
+            Since 1979, three generations of the same Central Florida family have wired homes and businesses across the region. We still answer our own phone. We still return on Sunday when a smoke detector chirps.
+          </p>
+          <a href="about.html" class="btn-ghost mt-32">Read our story</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER SELECTOR -->
+  <section class="chapters">
+    <div class="chapters-head">
+      <h2>Three practices, <em>one team.</em></h2>
+      <p>Select a discipline below. Each is a distinct practice with its own engineers, installers, and on-call rotation, unified under a single point of contact.</p>
+    </div>
+    <div class="chapter-list">
+      <a href="security.html" class="chapter">
+        <div class="chapter-num">CH. 01</div>
+        <div class="chapter-title">Security<br/><em>& Automation</em></div>
+        <p class="chapter-desc">Discreet alarms, high-resolution cameras, and smart-home intelligence designed around how you actually live, with monitoring from an operator who knows your name.</p>
+        <ul class="chapter-items">
+          <li>Home Security Systems</li>
+          <li>Smart Home Automation</li>
+          <li>Cameras &amp; Surveillance</li>
+          <li>Access Control</li>
+          <li>24/7 Central Monitoring</li>
+        </ul>
+        <span class="chapter-cta">Enter <span class="arr"></span></span>
+      </a>
+      <a href="fire.html" class="chapter">
+        <div class="chapter-num">CH. 02</div>
+        <div class="chapter-title">Commercial<br/><em>Fire Protection</em></div>
+        <p class="chapter-desc">Full-service fire protection for commercial properties, designed, installed, inspected, and monitored by a Florida-licensed team that speaks the code.</p>
+        <ul class="chapter-items">
+          <li>Fire Alarm Systems</li>
+          <li>Sprinkler Systems</li>
+          <li>Inspections &amp; Testing</li>
+          <li>Emergency &amp; Exit Lighting</li>
+          <li>24/7 Fire Monitoring</li>
+        </ul>
+        <span class="chapter-cta">Enter <span class="arr"></span></span>
+      </a>
+      <a href="smart-home.html" class="chapter">
+        <div class="chapter-num">CH. 03</div>
+        <div class="chapter-title">Smart Home<br/><em>& Theater</em></div>
+        <p class="chapter-desc">Authorized dealer and integrator for Lutron, Samsung Frame, and whole-home audio. We design rooms that look like rooms, not product demos.</p>
+        <ul class="chapter-items">
+          <li>Custom Home Theaters</li>
+          <li>Samsung Frame TV</li>
+          <li>Surround Sound &amp; Audio</li>
+          <li>Automated Shades</li>
+          <li>Lutron Lighting</li>
+        </ul>
+        <span class="chapter-cta">Enter <span class="arr"></span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="reveal" style="position: relative;">
+          <div class="story-img photo tone-warm grain"><picture><source srcset="images/family-steps.webp" type="image/webp"/><img src="images/family-steps.jpg" alt="A family sitting on their front porch steps"/></picture></div>
+          <div class="story-years">
+            <div class="big">47<span style="color:var(--brass)">yr</span></div>
+            <div class="lbl">Same family · Same town</div>
+          </div>
+        </div>
+        <div class="story-body reveal reveal-delay-2">
+          <div class="eyebrow" data-num="01" style="margin-bottom: 24px;" >Our story</div>
+          <h2>A family firm,<br/><em>still on call.</em></h2>
+          <p>Better Living Systems was founded in Winter Garden in 1979, back when "home automation" meant a thermostat you could program for the weekend. We've grown by staying small enough to know our customers and large enough to carry the licensing, insurance, and on-call staff a modern system demands.</p>
+          <p>We don't outsource monitoring. We don't subcontract installs. And we don't leave a job until the homeowner knows how to use the system.</p>
+          <div class="story-stats">
+            <div class="story-stat"><div class="num">1979</div><div class="lbl">Founded</div></div>
+            <div class="story-stat"><div class="num">3<span style="color:var(--brass)">rd</span></div><div class="lbl">Generation</div></div>
+            <div class="story-stat"><div class="num">24/7</div><div class="lbl">In-house monitoring</div></div>
+          </div>
+          <a class="btn mt-48" href="about.html">
+            Our story in full
+            <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS MARQUEE -->
+  <div class="partners-head">
+    <div class="eyebrow" style="margin-bottom: 24px;">Authorized dealer · Integrator · Installer</div>
+    <h3>The brands we stake our name on.</h3>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Lutron</span><span>Samsung Frame</span><span>Sonos</span><span>Control4</span>
+      <span>Bosch</span><span>Honeywell</span><span>Alarm.com</span><span>Hunter Douglas</span>
+      <span>Lutron</span><span>Samsung Frame</span><span>Sonos</span><span>Control4</span>
+      <span>Bosch</span><span>Honeywell</span><span>Alarm.com</span><span>Hunter Douglas</span>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="quotes">
+    <div class="wrap">
+      <div class="quotes-head">
+        <h2>Trusted by <em>families</em><br/>and their businesses.</h2>
+        <div>
+          <div class="eyebrow" style="color: var(--brass-2); margin-bottom: 12px;">In their words</div>
+          <p style="color: rgba(244,239,230,0.65); font-size: 15px; max-width: 32ch; line-height: 1.6;">We don't cherry-pick. These are a cross-section of homeowners and commercial clients we've served for over a decade.</p>
+        </div>
+      </div>
+      <div class="quotes-grid">
+        <div class="quote">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">We've been customers about 17 years, and their service has always been outstanding. If you're looking for a reliable alarm company, Better Living Systems is the way to go.</p>
+          <div class="quote-meta"><strong>Miriam V.</strong><span>·</span><span>Residential · 17 yrs</span></div>
+        </div>
+        <div class="quote">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">Had the pleasure of working with this company since 2007. They treat us like we are their own family. Highest recommendation.</p>
+          <div class="quote-meta"><strong>Gary G.</strong><span>·</span><span>Long-term client</span></div>
+        </div>
+        <div class="quote">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">The Better Living Systems team is one of the best I've ever worked with. They are 10× better than any large home security company.</p>
+          <div class="quote-meta"><strong>Meagan D.</strong><span>·</span><span>Homeowner</span></div>
+        </div>
+        <div class="quote">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">Always responsive, very professional. We have been with them for over 20 years. Wouldn't trust anyone else with our security.</p>
+          <div class="quote-meta"><strong>Melody B.</strong><span>·</span><span>Residential · 20+ yrs</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom: 40px;">Free in-home consultation</div>
+      <h2>Let us walk<br/>your <em>property.</em></h2>
+      <p class="cta-sub">A real person, at your door, within a week. No commissioned sales, the person quoting you is the person installing it.</p>
+      <div class="cta-actions">
+        <a class="btn btn-brass" href="contact.html">
+          Request consultation
+          <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <a class="btn" href="tel:4076964411">
+          Call (407) 696-4411
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js?v=1776732905"></script>
+</body>
+</html>

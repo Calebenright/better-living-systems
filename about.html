@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Better Living Systems</title>
+  <meta name="description" content="Three generations, one family, one phone number. The story of a Winter Garden firm in business since 1979." />
+  <meta name="theme-color" content="#141311" />
+  <link rel="icon" type="image/png" href="images/logo-mark-dark.png" />
+  <link rel="apple-touch-icon" href="images/logo-mark-dark.png" />
+  <link rel="canonical" href="https://betterlivingsystems.com/about" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Better Living Systems" />
+  <meta property="og:title" content="About | Better Living Systems" />
+  <meta property="og:description" content="Three generations, one family, one phone number. The story of a Winter Garden firm in business since 1979." />
+  <meta property="og:url" content="https://betterlivingsystems.com/about" />
+  <meta property="og:image" content="https://betterlivingsystems.com/images/family-steps.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About | Better Living Systems" />
+  <meta name="twitter:description" content="Three generations, one family, one phone number. The story of a Winter Garden firm in business since 1979." />
+  <meta name="twitter:image" content="https://betterlivingsystems.com/images/family-steps.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css?v=1776732905" />
+  <style>
+    .ah { padding: 100px 0 clamp(80px, 10vw, 140px); background: var(--paper); text-align: center; }
+    .ah .eyebrow { margin-bottom: 32px; }
+    .ah h1 { font-family: var(--serif); font-size: clamp(64px, 11vw, 200px); line-height: 0.9; letter-spacing: -0.035em; max-width: 14ch; margin: 0 auto; }
+    .ah h1 em { color: var(--brass); }
+    .ah p { font-size: 19px; color: var(--ink-2); line-height: 1.6; max-width: 54ch; margin: 48px auto 0; }
+    .ah-img { margin-top: 80px; aspect-ratio: 21/9; }
+
+    /* Timeline */
+    .tl { padding: clamp(100px, 12vw, 180px) 0; background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .tl-head { text-align: center; margin-bottom: 80px; }
+    .tl-head h2 { font-family: var(--serif); font-size: clamp(44px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; }
+    .tl-head h2 em { color: var(--brass); }
+    .tl-track { position: relative; max-width: 980px; margin: 0 auto; padding: 0 24px; }
+    .tl-track::before {
+      content: '';
+      position: absolute;
+      left: 120px;
+      top: 24px; bottom: 24px;
+      width: 1px;
+      background: var(--line);
+    }
+    .tl-entry {
+      display: grid;
+      grid-template-columns: 120px 40px 1fr;
+      gap: 24px;
+      padding: 32px 0;
+      align-items: start;
+    }
+    .tl-entry .year { font-family: var(--serif); font-size: 36px; line-height: 1; letter-spacing: -0.02em; color: var(--brass); }
+    .tl-entry .marker { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--brass); margin-left: 14px; margin-top: 12px; }
+    .tl-entry .body h3 { font-family: var(--serif); font-size: 28px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 8px; }
+    .tl-entry .body p { font-size: 15px; color: var(--ink-2); line-height: 1.6; max-width: 52ch; }
+    @media (max-width: 700px) {
+      .tl-track::before { left: 16px; }
+      .tl-entry { grid-template-columns: 40px 1fr; }
+      .tl-entry .year { grid-column: 2 / 3; font-size: 24px; margin-bottom: 4px; }
+      .tl-entry .marker { margin-left: 0; }
+    }
+
+    /* Values */
+    .vals { padding: clamp(100px, 12vw, 180px) 0; }
+    .vals-head { margin-bottom: 80px; max-width: 900px; }
+    .vals-head h2 { font-family: var(--serif); font-size: clamp(44px, 6vw, 96px); line-height: 1; letter-spacing: -0.025em; }
+    .vals-head h2 em { color: var(--brass); }
+    .vals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .val { background: var(--paper); padding: 48px; min-height: 360px; display: flex; flex-direction: column; }
+    .val-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--brass); margin-bottom: 48px; }
+    .val h3 { font-family: var(--serif); font-size: 36px; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .val h3 em { color: var(--brass); }
+    .val p { font-size: 15px; color: var(--ink-2); line-height: 1.65; flex: 1; }
+    @media (max-width: 900px) { .vals-grid { grid-template-columns: 1fr; } }
+
+    /* Team grid */
+    .team { padding: clamp(100px, 12vw, 160px) 0; background: var(--ink); color: var(--ivory); }
+    .team-head { margin-bottom: 64px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+    .team-head h2 { font-family: var(--serif); font-size: clamp(44px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; max-width: 14ch; }
+    .team-head h2 em { color: var(--brass-soft); }
+    .team-head p { color: rgba(244,239,230,0.65); max-width: 38ch; font-size: 15px; line-height: 1.6; }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .teammate .img-ph { aspect-ratio: 4/5; background-color: var(--ink-2); background-image: repeating-linear-gradient(135deg, var(--ink-2) 0, var(--ink-2) 14px, rgba(255,255,255,0.08) 14px, rgba(255,255,255,0.08) 15px); }
+    .teammate .img-ph::after { background: var(--ink); color: var(--brass-2); border-color: rgba(255,255,255,0.1); }
+    .teammate h4 { font-family: var(--serif); font-size: 24px; line-height: 1; letter-spacing: -0.015em; margin-top: 20px; }
+    .teammate .role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-2); margin-top: 8px; }
+    .teammate .note { font-size: 13px; color: rgba(244,239,230,0.55); margin-top: 12px; line-height: 1.5; }
+    @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* Areas */
+    .areas { padding: clamp(100px, 12vw, 160px) 0; text-align: center; }
+    .areas h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 80px); line-height: 1; letter-spacing: -0.025em; margin-bottom: 48px; }
+    .areas h2 em { color: var(--brass); }
+    .areas-list { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; max-width: 900px; margin: 0 auto; }
+    .area-chip { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); padding: 12px 20px; border: 1px solid var(--line); border-radius: 999px; }
+    .area-chip.primary { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+
+    .ctaband { background: var(--paper); padding: clamp(80px, 10vw, 120px) 0; text-align: center; border-top: 1px solid var(--line); }
+    .ctaband h2 { font-family: var(--serif); font-size: clamp(40px, 6vw, 96px); line-height: 1; letter-spacing: -0.025em; margin-bottom: 40px; }
+    .ctaband h2 em { color: var(--brass); }
+  </style>
+</head>
+<body data-page="about">
+
+  <div data-nav></div>
+
+  <section class="ah">
+    <div class="wrap">
+      <div class="eyebrow">Our story · Est. MCMLXXIX</div>
+      <h1>Three generations.<br/>One <em>phone number.</em></h1>
+      <p>Better Living Systems has been a family firm in Central Florida since 1979, founded the same year Orlando added its first high-rise. We've watched the city grow. We've grown with it. And we've kept the same number since day one.</p>
+      <div class="ah-img photo tone-warm grain"><picture><source srcset="images/family-smart-home.webp" type="image/webp"/><img src="images/family-smart-home.jpg" alt="Family"/></picture></div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="tl">
+    <div class="wrap">
+      <div class="tl-head">
+        <div class="eyebrow" style="margin-bottom: 20px;">A brief chronicle</div>
+        <h2>Forty-seven <em>years</em> of wires.</h2>
+      </div>
+      <div class="tl-track">
+        <div class="tl-entry">
+          <div class="year">1979</div>
+          <div class="marker"></div>
+          <div class="body">
+            <h3>Founded in Winter Garden</h3>
+            <p>Started as a two-truck alarm company installing hardwired bell-box systems for citrus-country homeowners. No central station yet, just a phone tree.</p>
+          </div>
+        </div>
+        <div class="tl-entry">
+          <div class="year">1987</div>
+          <div class="marker"></div>
+          <div class="body">
+            <h3>First commercial fire contract</h3>
+            <p>Expanded into commercial fire protection with a Florida EF license and partnerships with local AHJs.</p>
+          </div>
+        </div>
+        <div class="tl-entry">
+          <div class="year">1994</div>
+          <div class="marker"></div>
+          <div class="body">
+            <h3>24/7 central monitoring</h3>
+            <p>Opened our own UL-listed monitoring operation. Still staffed by operators who know the properties.</p>
+          </div>
+        </div>
+        <div class="tl-entry">
+          <div class="year">2005</div>
+          <div class="marker"></div>
+          <div class="body">
+            <h3>Smart home division</h3>
+            <p>Added lighting and audio as home automation became wireless. First Lutron-authorized project that year.</p>
+          </div>
+        </div>
+        <div class="tl-entry">
+          <div class="year">2016</div>
+          <div class="marker"></div>
+          <div class="body">
+            <h3>Third-generation leadership</h3>
+            <p>Founder's grandchildren take operations. First dedicated home theater install the same year.</p>
+          </div>
+        </div>
+        <div class="tl-entry">
+          <div class="year">2026</div>
+          <div class="marker"></div>
+          <div class="body">
+            <h3>Today</h3>
+            <p>24 employees. Three divisions. 4,200 active residential accounts, 180 commercial. Still answering our own phones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="vals">
+    <div class="wrap">
+      <div class="vals-head">
+        <div class="eyebrow" style="margin-bottom: 24px;">What we believe</div>
+        <h2>Three things we <em>don't</em> outsource.</h2>
+      </div>
+      <div class="vals-grid">
+        <div class="val">
+          <div class="val-num">§ 01</div>
+          <h3>The <em>phone.</em></h3>
+          <p>When you call, a human from this office picks up. Not a menu, not an offshore queue. If it's after hours, it's a technician, not a dispatcher.</p>
+        </div>
+        <div class="val">
+          <div class="val-num">§ 02</div>
+          <h3>The <em>install.</em></h3>
+          <p>Every cable in your walls is pulled by a person on our payroll. We don't subcontract installs, and we don't rotate crews. The tech who finishes it is the tech you'll see again.</p>
+        </div>
+        <div class="val">
+          <div class="val-num">§ 03</div>
+          <h3>The <em>watch.</em></h3>
+          <p>Our monitoring station is staffed by trained operators in our region. They know your floorplan, your pets, and the code word you'd use if something was wrong.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <div class="wrap">
+      <div class="team-head">
+        <div>
+          <div class="eyebrow" style="color: var(--brass-2); margin-bottom: 24px;">Our people</div>
+          <h2>The <em>same faces,</em><br/>for decades.</h2>
+        </div>
+        <p>Average tenure at Better Living Systems is 11 years. Our longest-serving technician has been here since 1992. We still go to each other's kids' weddings.</p>
+      </div>
+      <div class="team-grid">
+        <div class="teammate">
+          <div class="photo tone-dark grain" style="aspect-ratio:4/5;"><picture><source srcset="images/monitoring-operator.webp" type="image/webp"/><img src="images/monitoring-operator.jpg" alt="Daniel"/></picture></div>
+          <h4>Daniel Morales</h4>
+          <div class="role">Principal · 3rd gen.</div>
+          <p class="note">Grandson of the founder. Walks every consultation himself.</p>
+        </div>
+        <div class="teammate">
+          <div class="photo tone-warm grain" style="aspect-ratio:4/5;"><picture><source srcset="images/thermostat-woman.webp" type="image/webp"/><img src="images/thermostat-woman.jpg" alt="Rosa"/></picture></div>
+          <h4>Rosa Castañeda</h4>
+          <div class="role">Fire · FLS-07841</div>
+          <p class="note">Florida Licensed Inspector. Runs the commercial binder program.</p>
+        </div>
+        <div class="teammate">
+          <div class="photo tone-dark grain" style="aspect-ratio:4/5;"><picture><source srcset="images/camera-install.webp" type="image/webp"/><img src="images/camera-install.jpg" alt="James"/></picture></div>
+          <h4>James Whitfield</h4>
+          <div class="role">Smart Home Lead</div>
+          <p class="note">Lutron-certified since 2009. Specialist in HomeWorks QSX.</p>
+        </div>
+        <div class="teammate">
+          <div class="photo tone-dark grain" style="aspect-ratio:4/5;"><picture><source srcset="images/cctv-operator.webp" type="image/webp"/><img src="images/cctv-operator.jpg" alt="Elena"/></picture></div>
+          <h4>Elena Park</h4>
+          <div class="role">Central Station</div>
+          <p class="note">Runs our in-house UL-listed monitoring operation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="areas">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom: 24px;">Service areas</div>
+      <h2>Central Florida,<br/><em>door to door.</em></h2>
+      <div class="areas-list">
+        <span class="area-chip primary">Winter Garden</span>
+        <span class="area-chip primary">Orlando</span>
+        <span class="area-chip">Windermere</span>
+        <span class="area-chip">Dr. Phillips</span>
+        <span class="area-chip">Clermont</span>
+        <span class="area-chip">Ocoee</span>
+        <span class="area-chip">Apopka</span>
+        <span class="area-chip">Lake Mary</span>
+        <span class="area-chip">Sanford</span>
+        <span class="area-chip">Altamonte Springs</span>
+        <span class="area-chip">Kissimmee</span>
+        <span class="area-chip">Celebration</span>
+        <span class="area-chip">Lake Nona</span>
+        <span class="area-chip">Mount Dora</span>
+        <span class="area-chip">Winter Park</span>
+      </div>
+      <p class="body-m" style="margin: 40px auto 0;">Not on the list? Call, we likely cover it.</p>
+    </div>
+  </section>
+
+  <section class="ctaband">
+    <div class="wrap">
+      <h2>Meet the <em>team</em><br/>at your door.</h2>
+      <a class="btn btn-brass" href="contact.html">
+        Book a consultation
+        <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js?v=1776732905"></script>
+</body>
+</html>
