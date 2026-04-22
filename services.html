@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services, Better Living Systems</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css" />
+  <style>
+    /* ---- Page header ---- */
+    .sh { padding: 80px 0 0; background: var(--paper); }
+    .sh-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 48px; border-bottom: 1px solid var(--line); gap: 40px; flex-wrap: wrap; }
+    .sh-top .eyebrow::before { content: 'On the work, '; color: var(--brass); }
+    .sh-top h1 { font-family: var(--serif); font-size: clamp(56px, 10vw, 160px); line-height: 0.88; letter-spacing: -0.035em; margin-top: 20px; max-width: 12ch; }
+    .sh-top h1 em { color: var(--brass); font-style: italic; }
+    .sh-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); text-align: right; }
+    .sh-meta div + div { margin-top: 8px; }
+
+    .sh-body {
+      padding: clamp(80px, 10vw, 140px) 0 clamp(48px, 6vw, 80px);
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(48px, 8vw, 140px);
+      align-items: start;
+    }
+    .sh-mark {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(96px, 12vw, 200px);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--brass);
+    }
+    .sh-mark sup { font-size: 0.32em; vertical-align: super; letter-spacing: 0; color: var(--ink-soft); }
+    .sh-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      max-width: 22ch;
+    }
+    .sh-copy h2 em { color: var(--brass); font-style: italic; }
+    .sh-copy p { font-size: 18px; line-height: 1.7; color: var(--ink-2); max-width: 58ch; }
+    .sh-copy p + p { margin-top: 20px; }
+    @media (max-width: 900px) { .sh-body { grid-template-columns: 1fr; gap: 48px; } }
+
+    /* ---- Scope strip ---- */
+    .scope {
+      background: var(--ivory);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 36px 0;
+    }
+    .scope-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .scope .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass); white-space: nowrap; }
+    .scope-items {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-family: var(--serif);
+      font-size: clamp(18px, 2vw, 26px);
+      letter-spacing: -0.01em;
+    }
+    .scope-items span { display: inline-flex; align-items: center; gap: 20px; }
+    .scope-items span + span::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--brass);
+      border-radius: 50%;
+      margin-right: 14px;
+      display: inline-block;
+      transform: translateY(-2px);
+    }
+
+    /* ---- Phases ---- */
+    .phases { padding: clamp(100px, 12vw, 180px) 0 0; }
+    .phase {
+      padding: clamp(64px, 10vw, 140px) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .phase:last-of-type { border-bottom: 0; }
+    .phase-head {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: clamp(32px, 6vw, 80px);
+      margin-bottom: clamp(48px, 6vw, 80px);
+      align-items: start;
+    }
+    .phase-num {
+      font-family: var(--serif);
+      font-size: clamp(80px, 10vw, 160px);
+      line-height: 0.82;
+      letter-spacing: -0.04em;
+      color: var(--brass);
+      font-style: italic;
+    }
+    .phase-num .pref { font-family: var(--mono); font-size: 0.14em; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 14px; font-style: normal; }
+    .phase-title h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+    }
+    .phase-title h2 em { color: var(--brass); font-style: italic; }
+    .phase-title .lede {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      margin-top: 28px;
+      max-width: 58ch;
+    }
+    @media (max-width: 800px) {
+      .phase-head { grid-template-columns: 1fr; gap: 24px; }
+      .phase-num { font-size: 80px; }
+    }
+
+    .phase-body {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+    }
+    .phase-photo {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      position: relative;
+    }
+    .phase-photo .cap {
+      position: absolute;
+      left: 16px; bottom: 16px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      background: rgba(26, 24, 20, 0.75);
+      padding: 8px 10px;
+      backdrop-filter: blur(4px);
+    }
+    .phase-col h4 {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .phase-col p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      margin-bottom: 16px;
+    }
+    .phase-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .phase-col li {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      font-family: var(--serif);
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .phase-col li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--brass);
+      border-radius: 50%;
+      flex-shrink: 0;
+      transform: translateY(-3px);
+    }
+    @media (max-width: 900px) {
+      .phase-body { grid-template-columns: 1fr; gap: 32px; }
+      .phase-photo { aspect-ratio: 3/2; }
+    }
+
+    /* Alternate phase: flip photo side */
+    .phase.alt .phase-body { grid-template-columns: 1fr 1fr 1.2fr; }
+    .phase.alt .phase-photo { order: 3; }
+    @media (max-width: 900px) {
+      .phase.alt .phase-body { grid-template-columns: 1fr; }
+      .phase.alt .phase-photo { order: 0; }
+    }
+
+    /* ---- Deliverables ledger ---- */
+    .ledger {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: clamp(100px, 12vw, 160px) 0;
+    }
+    .ledger-head {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(48px, 6vw, 96px);
+      align-items: end;
+      margin-bottom: 80px;
+    }
+    .ledger .eyebrow { color: var(--brass-2); }
+    .ledger h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+    }
+    .ledger h2 em { color: var(--brass-soft); font-style: italic; }
+    .ledger-head p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(244, 239, 230, 0.7);
+      max-width: 46ch;
+    }
+
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .ledger-table th {
+      text-align: left;
+      padding: 16px 20px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-2);
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .ledger-table td {
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+    }
+    .ledger-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .ledger-table .num { font-family: var(--mono); font-size: 11px; color: var(--brass-2); letter-spacing: 0.04em; width: 80px; }
+    .ledger-table .name { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; color: var(--ivory); }
+    .ledger-table .phase-pill {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--brass-soft);
+      text-transform: uppercase;
+    }
+    .ledger-table .detail {
+      font-size: 13px;
+      color: rgba(244, 239, 230, 0.65);
+      line-height: 1.5;
+    }
+    @media (max-width: 800px) {
+      .ledger-head { grid-template-columns: 1fr; gap: 32px; }
+      .ledger-table th:nth-child(3), .ledger-table td:nth-child(3) { display: none; }
+      .ledger-table .name { font-size: 17px; }
+    }
+
+    /* ---- Warranty ---- */
+    .warranty {
+      padding: clamp(100px, 12vw, 160px) 0;
+      background: var(--paper);
+    }
+    .warranty-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: clamp(48px, 8vw, 120px);
+      align-items: start;
+    }
+    .warranty .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .warranty h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+    }
+    .warranty h2 em { color: var(--brass); font-style: italic; }
+    .warranty p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 58ch;
+      margin-bottom: 24px;
+    }
+    .w-terms {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+    .w-term .k {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 12px;
+    }
+    .w-term .v {
+      font-family: var(--serif);
+      font-size: 28px;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .w-term .d {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    @media (max-width: 900px) {
+      .warranty-grid { grid-template-columns: 1fr; gap: 48px; }
+      .w-terms { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ---- Who this is for ---- */
+    .for {
+      padding: clamp(100px, 12vw, 160px) 0;
+      background: var(--ivory);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .for-head { text-align: center; margin-bottom: 80px; }
+    .for-head .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .for-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+    }
+    .for-head h2 em { color: var(--brass); font-style: italic; }
+    .for-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .for-col {
+      padding: 48px 40px 56px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .for-col .n {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--brass);
+      margin-bottom: 32px;
+    }
+    .for-col h3 {
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      max-width: 14ch;
+    }
+    .for-col h3 em { color: var(--brass); font-style: italic; }
+    .for-col p {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .for-col .best {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--line);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+    }
+    .for-col .best strong { color: var(--brass); font-weight: 500; }
+    @media (max-width: 900px) {
+      .for-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- CTA band ---- */
+    .ctaband {
+      background: var(--paper);
+      padding: clamp(100px, 12vw, 160px) 0;
+      text-align: center;
+    }
+    .ctaband .eyebrow { margin-bottom: 32px; }
+    .ctaband h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 112px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin-bottom: 40px;
+    }
+    .ctaband h2 em { color: var(--brass); font-style: italic; }
+    .ctaband p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 52ch;
+      margin: 0 auto 48px;
+    }
+    .ctaband-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body data-page="services">
+
+  <div data-nav></div>
+
+  <!-- HEADER -->
+  <section class="sh" data-screen-label="Services hero">
+    <div class="wrap">
+      <div class="sh-top">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h1>The work we sign <em>our name to.</em></h1>
+        </div>
+        <div class="sh-meta">
+          <div>Design → Engineer → Install → Service</div>
+          <div>Typical project, 4 to 16 months</div>
+          <div style="color: var(--brass);">,  Our crews, every time.</div>
+        </div>
+      </div>
+
+      <div class="sh-body">
+        <div class="sh-mark reveal">§<sup>on method</sup></div>
+        <div class="sh-copy reveal reveal-delay-2">
+          <h2>Four phases, and the people who carry them from drawing to daily use.</h2>
+          <p>A project with us is not a transaction for a product. It is a set of decisions made in the right order, by the right people, starting at the architectural drawings and ending at the first quiet evening in the finished room.</p>
+          <p>Below is the full arc of that work. Most projects pass through all four phases. A retrofit may begin at the second. A service call starts at the fourth. The steps are the same either way, and the same names appear on them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOPE STRIP -->
+  <section class="scope">
+    <div class="wrap">
+      <div class="scope-inner">
+        <div class="k">Project types we take on</div>
+        <div class="scope-items">
+          <span>New build</span>
+          <span>Whole-home renovation</span>
+          <span>Single room</span>
+          <span>Retrofit</span>
+          <span>Addition</span>
+          <span>Service call</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASES -->
+  <section class="phases" data-screen-label="Services phases">
+
+    <!-- PHASE 01 — Design -->
+    <article class="phase">
+      <div class="wrap">
+        <div class="phase-head">
+          <div class="phase-num reveal">
+            <span class="pref">§ 01 of 04</span>
+            01
+          </div>
+          <div class="phase-title reveal reveal-delay-2">
+            <h2>Design.<br/><em>Drawings first, in that room.</em></h2>
+            <p class="lede">Before anything is specified, we sit with the architect's plans, the interior designer's palette, and you. The outcome of this phase is a set of drawings the house will be built against, not retrofitted to.</p>
+          </div>
+        </div>
+        <div class="phase-body reveal">
+          <figure class="phase-photo photo tone-warm grain">
+            <img src="images/modern-interior.jpg" alt="A project at drawings stage" />
+            <figcaption class="cap">§ 01 · At the drafting table</figcaption>
+          </figure>
+          <div class="phase-col">
+            <h4>What happens</h4>
+            <p>A walk-through of the site if it exists, or a conversation over the architect's set if it doesn't. We ask how the house is used, where the art is going, where the kids sleep, how you take your morning. Then we draw.</p>
+            <p>Lighting layers, shade pockets, speaker placements, display locations, media closets, and cable paths are drawn to scale and shared back for review. Two rounds is typical.</p>
+          </div>
+          <div class="phase-col">
+            <h4>What you receive</h4>
+            <ul>
+              <li>Lighting plan, to scale</li>
+              <li>Shade schedule by window</li>
+              <li>Speaker and display layout</li>
+              <li>Cable pathway drawings</li>
+              <li>Media closet elevation</li>
+              <li>Keypad placement plan</li>
+              <li>Signed cover sheet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHASE 02 — Engineer -->
+    <article class="phase alt">
+      <div class="wrap">
+        <div class="phase-head">
+          <div class="phase-num reveal">
+            <span class="pref">§ 02 of 04</span>
+            02
+          </div>
+          <div class="phase-title reveal reveal-delay-2">
+            <h2>Engineer.<br/><em>Specify, schedule, and coordinate.</em></h2>
+            <p class="lede">Drawings become a schedule of every part that will enter the house, with model numbers, finishes, engraving, quantities, lead times, and the trade responsible for each. This is the document the project is actually built from.</p>
+          </div>
+        </div>
+        <div class="phase-body reveal">
+          <div class="phase-col">
+            <h4>What happens</h4>
+            <p>The fixture schedule, the shade schedule, and the control schedule are written line by line. Keypads are engraved, finishes are sampled, cable counts are confirmed against the drawings. We pre-wire dates with the electrician and rough-in dates with the builder.</p>
+            <p>Long-lead items are ordered in this phase. Everything is staged at our shop before it arrives on site.</p>
+          </div>
+          <div class="phase-col">
+            <h4>What you receive</h4>
+            <ul>
+              <li>Fixture schedule, itemized</li>
+              <li>Shade and fabric approval</li>
+              <li>Keypad engraving proofs</li>
+              <li>Load schedule with circuits</li>
+              <li>Coordination letters to trades</li>
+              <li>Fixed-price line-item proposal</li>
+              <li>Site-walk date on the calendar</li>
+            </ul>
+          </div>
+          <figure class="phase-photo photo tone-warm grain">
+            <img src="images/smart-tablet.jpg" alt="Engineering schedule review" />
+            <figcaption class="cap">§ 02 · Schedule review</figcaption>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHASE 03 — Install -->
+    <article class="phase">
+      <div class="wrap">
+        <div class="phase-head">
+          <div class="phase-num reveal">
+            <span class="pref">§ 03 of 04</span>
+            03
+          </div>
+          <div class="phase-title reveal reveal-delay-2">
+            <h2>Install.<br/><em>By the hands that drew it.</em></h2>
+            <p class="lede">Rough-in, pre-wire, trim-out, programming, calibration, and the final walk-through. Every cable in the walls is pulled by someone on our payroll. The technician who finishes the rough-in is the technician who hands you the keypad.</p>
+          </div>
+        </div>
+        <div class="phase-body reveal">
+          <figure class="phase-photo photo tone-warm grain">
+            <img src="images/camera-install.jpg" alt="Installation in progress" />
+            <figcaption class="cap">§ 03 · Trim-out</figcaption>
+          </figure>
+          <div class="phase-col">
+            <h4>What happens</h4>
+            <p>Pre-wire rides the electrician's rough-in, not after it. Speakers and keypads go in when the drywall is still open. Displays are recessed into their boxes before paint. Programming happens in our shop against a copy of the house's actual address list, then loaded on site.</p>
+            <p>A calibration pass closes the phase. The microphones come out, the scenes are named, the control app is handed over.</p>
+          </div>
+          <div class="phase-col">
+            <h4>What you receive</h4>
+            <ul>
+              <li>Rough-in inspection sign-off</li>
+              <li>Programmed keypads, labeled</li>
+              <li>Calibration report per room</li>
+              <li>Control app provisioned</li>
+              <li>Scene library, written plain</li>
+              <li>As-built drawings, archived</li>
+              <li>Closing walk-through with notes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PHASE 04 — Service -->
+    <article class="phase alt">
+      <div class="wrap">
+        <div class="phase-head">
+          <div class="phase-num reveal">
+            <span class="pref">§ 04 of 04</span>
+            04
+          </div>
+          <div class="phase-title reveal reveal-delay-2">
+            <h2>Service.<br/><em>The years after the last trim screw.</em></h2>
+            <p class="lede">Houses change. Habits change. Firmware changes. The fourth phase begins the day the crew packs out, and runs for as long as the system is on the wall. You keep the phone number, and the same people who built it keep the house.</p>
+          </div>
+        </div>
+        <div class="phase-body reveal">
+          <div class="phase-col">
+            <h4>What happens</h4>
+            <p>An annual visit is scheduled before we leave. We check the system against its original calibration, update firmware where it's earned it, and replace anything that has drifted out of tolerance. Between visits, we answer the phone.</p>
+            <p>Additions, renovations, and room-for-room replacements all start here. The plan you already own gets amended, not rewritten.</p>
+          </div>
+          <div class="phase-col">
+            <h4>What you receive</h4>
+            <ul>
+              <li>Annual service visit, scheduled</li>
+              <li>Priority phone line</li>
+              <li>Firmware maintenance</li>
+              <li>Parts warranty support</li>
+              <li>Live portal with your drawings</li>
+              <li>Same-week response in-region</li>
+              <li>A number, not a ticket system</li>
+            </ul>
+          </div>
+          <figure class="phase-photo photo tone-warm grain">
+            <img src="images/thermostat-woman.jpg" alt="A client using her system" />
+            <figcaption class="cap">§ 04 · After handover</figcaption>
+          </figure>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- DELIVERABLES LEDGER -->
+  <section class="ledger" data-screen-label="Services ledger">
+    <div class="wrap">
+      <div class="ledger-head">
+        <div class="reveal">
+          <div class="eyebrow">The ledger</div>
+          <h2 style="margin-top: 24px;">Everything that leaves <em>our desk.</em></h2>
+        </div>
+        <p class="reveal reveal-delay-2">A complete record of the artifacts a project produces. Most clients never need to look at it twice. Insurance adjusters, future architects, and the next owner of the house have asked us for it often enough that we keep a copy digitally, and a copy on paper.</p>
+      </div>
+
+      <table class="ledger-table">
+        <thead>
+          <tr>
+            <th>Ref.</th>
+            <th>Document or deliverable</th>
+            <th>Description</th>
+            <th>Phase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">D-01</td><td class="name">Lighting plan</td><td class="detail">Every fixture located to scale, with circuiting and dimmer grouping.</td><td><span class="phase-pill">§ 01</span></td></tr>
+          <tr><td class="num">D-02</td><td class="name">Shade schedule</td><td class="detail">Window-by-window fabric, opacity, and pocket dimensions.</td><td><span class="phase-pill">§ 01</span></td></tr>
+          <tr><td class="num">D-03</td><td class="name">Audio & display plan</td><td class="detail">Speaker voicing, display recess dimensions, listening positions.</td><td><span class="phase-pill">§ 01</span></td></tr>
+          <tr><td class="num">D-04</td><td class="name">Cable pathway drawings</td><td class="detail">Homerun paths, conduit sleeves, and media closet entries.</td><td><span class="phase-pill">§ 01</span></td></tr>
+          <tr><td class="num">D-05</td><td class="name">Fixture schedule</td><td class="detail">Itemized, with model numbers, finishes, and lead times.</td><td><span class="phase-pill">§ 02</span></td></tr>
+          <tr><td class="num">D-06</td><td class="name">Keypad engraving proofs</td><td class="detail">Button legends, font, and engraving color, approved in writing.</td><td><span class="phase-pill">§ 02</span></td></tr>
+          <tr><td class="num">D-07</td><td class="name">Load schedule</td><td class="detail">Every circuit in the house, mapped to its dimmer and keypad.</td><td><span class="phase-pill">§ 02</span></td></tr>
+          <tr><td class="num">D-08</td><td class="name">Line-item proposal</td><td class="detail">Fixed price by scope area, with allowances called out.</td><td><span class="phase-pill">§ 02</span></td></tr>
+          <tr><td class="num">D-09</td><td class="name">Rough-in sign-off</td><td class="detail">Trade-by-trade inspection sheet at wall-close.</td><td><span class="phase-pill">§ 03</span></td></tr>
+          <tr><td class="num">D-10</td><td class="name">Calibration report</td><td class="detail">Acoustic measurements per room, with target curves.</td><td><span class="phase-pill">§ 03</span></td></tr>
+          <tr><td class="num">D-11</td><td class="name">Scene library</td><td class="detail">Every named scene with the rooms and devices it touches.</td><td><span class="phase-pill">§ 03</span></td></tr>
+          <tr><td class="num">D-12</td><td class="name">As-built drawings</td><td class="detail">Final drawings reflecting anything changed on site.</td><td><span class="phase-pill">§ 03</span></td></tr>
+          <tr><td class="num">D-13</td><td class="name">Closing walk-through</td><td class="detail">A signed punch list and your handover binder.</td><td><span class="phase-pill">§ 03</span></td></tr>
+          <tr><td class="num">D-14</td><td class="name">Annual service log</td><td class="detail">What was checked, what drifted, what was replaced.</td><td><span class="phase-pill">§ 04</span></td></tr>
+          <tr><td class="num">D-15</td><td class="name">Client portal</td><td class="detail">Drawings, scenes, and history, live on the web.</td><td><span class="phase-pill">§ 04</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WARRANTY -->
+  <section class="warranty" data-screen-label="Services warranty">
+    <div class="wrap">
+      <div class="warranty-grid">
+        <div class="reveal">
+          <div class="eyebrow">Warranty &amp; support</div>
+          <h2>We are <em>a phone number,</em> not a ticket queue.</h2>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <p>Every project we deliver carries a two-year parts-and-labor warranty from the day of final walk-through. Manufacturers' coverage continues beyond that, administered by us so you are not on the phone with a call center in another time zone.</p>
+          <p>If something stops working, the same team that installed it answers. For anything urgent, we aim to be on site within the business day. For everything else, we schedule around your calendar.</p>
+
+          <div class="w-terms">
+            <div class="w-term">
+              <div class="k">Parts &amp; labor</div>
+              <div class="v">2 years</div>
+              <div class="d">From final walk-through date, both our work and the components we installed.</div>
+            </div>
+            <div class="w-term">
+              <div class="k">In-region response</div>
+              <div class="v">Same business day</div>
+              <div class="d">For anything that affects how the house is lived in. A loose keypad waits its turn.</div>
+            </div>
+            <div class="w-term">
+              <div class="k">After the warranty</div>
+              <div class="v">Same people</div>
+              <div class="d">Annual service, software updates, and additions all continue on the same phone number.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="for" data-screen-label="Services audiences">
+    <div class="wrap">
+      <div class="for-head">
+        <div class="eyebrow">The projects we're best at</div>
+        <h2>Where the work <em>pays off.</em></h2>
+      </div>
+      <div class="for-grid">
+        <div class="for-col reveal">
+          <div class="n">§ A</div>
+          <h3>The house being <em>built now.</em></h3>
+          <p>Drawings exist. Framing is scheduled, or the slab is already poured. This is where the work pays off the most, because everything is easiest to draw before the walls are closed.</p>
+          <p>We come in alongside the architect and builder, and leave a set of pages that looks like theirs.</p>
+          <div class="best"><strong>Best before:</strong> Electrical rough-in</div>
+        </div>
+        <div class="for-col reveal reveal-delay-2">
+          <div class="n">§ B</div>
+          <h3>The house being <em>redone.</em></h3>
+          <p>Walls are open again. A kitchen is coming out, a primary suite is being reorganized, a theater is going in. We run the part of the renovation that is wire, light, sound, and shade, and coordinate with whoever is running the rest.</p>
+          <p>Ideal for owners who want to use the open walls properly.</p>
+          <div class="best"><strong>Best before:</strong> Drywall, again</div>
+        </div>
+        <div class="for-col reveal reveal-delay-3">
+          <div class="n">§ C</div>
+          <h3>The house <em>already lived in.</em></h3>
+          <p>Nothing is coming apart. A keypad is misbehaving. An addition is coming. A dated theater is on its third remote. We pick up where the last installer left off, document what is already there, and plan from the honest starting point.</p>
+          <p>Written proposals before any work begins.</p>
+          <div class="best"><strong>Starts with:</strong> A site audit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="eyebrow">At the front of residential technology</div>
+      <h2>The next chapter<br/>of your <em>home.</em></h2>
+      <p>Tell us what you're building, renovating, or rethinking. <em>We'll text back to confirm within thirty minutes.</em></p>
+      <div class="ctaband-actions">
+        <a class="btn btn-brass" href="contact.html">
+          Begin an inquiry
+          <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <a class="btn" href="tel:4076964411">Call (407) 696-4411</a>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js"></script>
+</body>
+</html>

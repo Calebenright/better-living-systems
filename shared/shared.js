@@ -3,9 +3,10 @@
 (function () {
   const SITE_NAV = [
     { label: 'Home', href: 'index.html', key: 'home' },
-    { label: 'Security', href: 'security.html', key: 'security' },
-    { label: 'Fire', href: 'fire.html', key: 'fire' },
-    { label: 'Smart Home', href: 'smart-home.html', key: 'smart' },
+    { label: 'Products', href: 'products.html', key: 'products' },
+    { label: 'Services', href: 'services.html', key: 'services' },
+    { label: 'Showroom', href: 'showroom.html', key: 'showroom' },
+    { label: 'Security', href: 'https://hwalarm.com', key: 'security', external: true },
     { label: 'About', href: 'about.html', key: 'about' },
     { label: 'Contact', href: 'contact.html', key: 'contact' },
   ];
@@ -13,9 +14,10 @@
   function mountNav(activeKey) {
     const host = document.querySelector('[data-nav]');
     if (!host) return;
-    const links = SITE_NAV.map(n =>
-      `<a class="nav-link ${n.key === activeKey ? 'active' : ''}" href="${n.href}">${n.label}</a>`
-    ).join('');
+    const links = SITE_NAV.map(n => {
+      const target = n.external ? ' target="_blank" rel="noopener"' : '';
+      return `<a class="nav-link ${n.key === activeKey ? 'active' : ''}" href="${n.href}"${target}>${n.label}</a>`;
+    }).join('');
     host.innerHTML = `
       <nav class="nav">
         <div class="nav-inner">
@@ -25,9 +27,9 @@
           </a>
           <div class="nav-links">${links}</div>
           <div class="nav-right">
-            <div class="nav-phone">Orlando · <strong>(407) 696-4411</strong></div>
+            <div class="nav-phone">Central Florida · <strong>(407) 696-4411</strong></div>
             <a class="btn" href="contact.html">
-              Request consultation
+              Design Inquiry
               <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
             </a>
           </div>
@@ -42,44 +44,44 @@
     host.innerHTML = `
       <footer class="footer">
         <div class="wrap">
-          <div class="footer-brand-mark" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;"><img src="images/logo-mark-light.png" alt="BLS" style="height:36px; width:auto;"/><img src="images/logo-word-light.png" alt="Better Living Systems" style="height:18px; width:auto;"/></div>
+          <div class="footer-brand-mark" style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap;"><img src="images/logo-mark-light.png" alt="BLS" style="height:120px; width:auto;"/><img src="images/logo-word-light.png" alt="Better Living Systems" style="height:48px; width:auto; margin-bottom:16px;"/></div>
           <div class="footer-grid">
             <div class="footer-col">
               <h4>Est. 1979</h4>
               <p style="font-size:14px; color:var(--ivory-2); max-width:38ch; line-height:1.6;">
-                A family-owned firm serving Orlando, Winter Garden, and Central Florida with security, fire protection, and smart home systems, since the year the smoke alarm went mainstream.
+                An elevated technology experience for residential homes across Central Florida. Family-owned since 1979.
               </p>
               <div style="margin-top:24px; font-family:var(--mono); font-size:12px; letter-spacing:0.04em; color:var(--brass-2);">
                 <div>(407) 696-4411</div>
                 <div style="color:var(--ivory-2); margin-top:4px;">info@betterlivingsystems.com</div>
-                <div style="color:var(--ivory-2); margin-top:4px;">Winter Garden, FL</div>
+                <div style="color:var(--ivory-2); margin-top:4px;">Central Florida</div>
               </div>
+            </div>
+            <div class="footer-col">
+              <h4>Products</h4>
+              <ul>
+                <li><a href="products.html">Lighting & Keypads</a></li>
+                <li><a href="products.html">Audio & Theater</a></li>
+                <li><a href="products.html">Shades & Drapery</a></li>
+                <li><a href="products.html">Displays</a></li>
+              </ul>
             </div>
             <div class="footer-col">
               <h4>Services</h4>
               <ul>
-                <li><a href="security.html">Home Security</a></li>
-                <li><a href="security.html">Smart Automation</a></li>
-                <li><a href="security.html">Access Control</a></li>
-                <li><a href="security.html">24/7 Monitoring</a></li>
+                <li><a href="services.html">Design & Engineering</a></li>
+                <li><a href="services.html">Installation</a></li>
+                <li><a href="services.html">Calibration</a></li>
+                <li><a href="services.html">Service & Support</a></li>
               </ul>
             </div>
             <div class="footer-col">
-              <h4>Commercial</h4>
+              <h4>More</h4>
               <ul>
-                <li><a href="fire.html">Fire Alarm Systems</a></li>
-                <li><a href="fire.html">Sprinklers</a></li>
-                <li><a href="fire.html">Inspections</a></li>
-                <li><a href="fire.html">Emergency Lighting</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Living</h4>
-              <ul>
-                <li><a href="smart-home.html">Home Theater</a></li>
-                <li><a href="smart-home.html">Samsung Frame</a></li>
-                <li><a href="smart-home.html">Lutron Lighting</a></li>
-                <li><a href="smart-home.html">Automated Shades</a></li>
+                <li><a href="showroom.html">Showroom</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Design Inquiry</a></li>
+                <li><a href="https://hwalarm.com" target="_blank" rel="noopener">Security → H&W Alarm</a></li>
               </ul>
             </div>
           </div>

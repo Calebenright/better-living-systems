@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products, Better Living Systems</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css" />
+  <style>
+    /* ---- Page header ---- */
+    .ph { padding: 80px 0 0; background: var(--paper); }
+    .ph-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 48px; border-bottom: 1px solid var(--line); gap: 40px; flex-wrap: wrap; }
+    .ph-top .eyebrow::before { content: 'On selection, '; color: var(--brass); }
+    .ph-top h1 { font-family: var(--serif); font-size: clamp(56px, 10vw, 160px); line-height: 0.88; letter-spacing: -0.035em; margin-top: 20px; max-width: 12ch; }
+    .ph-top h1 em { color: var(--brass); font-style: italic; }
+    .ph-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); text-align: right; }
+    .ph-meta div + div { margin-top: 8px; }
+
+    /* ---- Editor's intro ---- */
+    .editor {
+      padding: clamp(80px, 10vw, 140px) 0;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .editor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(48px, 8vw, 140px);
+      align-items: start;
+    }
+    .editor-left .eyebrow { color: var(--brass); }
+    .editor-mark {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(96px, 12vw, 200px);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--brass);
+      margin-top: 32px;
+    }
+    .editor-mark sup { font-size: 0.4em; vertical-align: super; letter-spacing: 0; }
+    .editor-right h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4.5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .editor-right h2 em { color: var(--brass); }
+    .editor-right p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 58ch;
+    }
+    .editor-right p + p { margin-top: 20px; }
+    @media (max-width: 900px) {
+      .editor-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ---- Plates (editorial category cards) ---- */
+    .plates { background: var(--paper); padding: 0 0 clamp(80px, 10vw, 140px); }
+    .plates-head {
+      padding: clamp(80px, 10vw, 140px) 0 56px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .plates-head .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .plates-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 120px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 18ch;
+      margin: 0 auto;
+    }
+    .plates-head h2 em { color: var(--brass); font-style: italic; }
+
+    .plate {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+      min-height: 640px;
+    }
+    .plate:last-child { border-bottom: 1px solid var(--line); }
+    .plate:nth-child(even of .plate) { direction: rtl; }
+    .plate:nth-child(even of .plate) > * { direction: ltr; }
+
+    .plate-img {
+      position: relative;
+      overflow: hidden;
+      min-height: 540px;
+    }
+    .plate-img .img-ph,
+    .plate-img .photo {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+    }
+    .plate-img::after {
+      content: attr(data-caption);
+      position: absolute;
+      left: 28px; bottom: 24px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      background: rgba(26, 24, 20, 0.7);
+      padding: 8px 12px;
+      backdrop-filter: blur(4px);
+      max-width: calc(100% - 56px);
+    }
+
+    .plate-body {
+      padding: clamp(56px, 7vw, 96px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 0;
+      background: var(--paper);
+      position: relative;
+    }
+    .plate:nth-child(even of .plate) .plate-body { background: var(--ivory); }
+
+    .plate-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 40px;
+    }
+    .plate-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+    .plate-cat {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .plate-body h3 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 4.8vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      max-width: 14ch;
+    }
+    .plate-body h3 em { color: var(--brass); font-style: italic; }
+    .plate-body .lede {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 46ch;
+      margin-bottom: 32px;
+    }
+
+    .criteria {
+      border-top: 1px solid var(--line);
+      padding-top: 32px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px 28px;
+    }
+    .criteria dt {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+    .criteria dd {
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+    }
+    .criteria dd em { color: var(--brass); font-style: italic; }
+
+    @media (max-width: 900px) {
+      .plate { grid-template-columns: 1fr; }
+      .plate:nth-child(even of .plate) { direction: ltr; }
+      .plate-img { min-height: 380px; }
+      .plate-body { padding: 48px 28px; }
+    }
+
+    /* ---- Selection rules band ---- */
+    .rules {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: clamp(100px, 12vw, 180px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .rules::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(139, 111, 71, 0.16), transparent 60%);
+      pointer-events: none;
+    }
+    .rules-inner { position: relative; }
+    .rules-head {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: end;
+      padding-bottom: 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 80px;
+    }
+    .rules-head .eyebrow { color: var(--brass-2); }
+    .rules-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 112px);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+    }
+    .rules-head h2 em { color: var(--brass-soft); font-style: italic; }
+
+    .rules-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .rule {
+      background: var(--ink);
+      padding: 40px 32px 48px;
+    }
+    .rule .n {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--brass-2);
+      margin-bottom: 20px;
+    }
+    .rule h4 {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      margin-bottom: 16px;
+      min-height: 2.1em;
+    }
+    .rule h4 em { color: var(--brass-soft); font-style: italic; }
+    .rule p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(244,239,230,0.7);
+    }
+    @media (max-width: 1100px) { .rules-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) {
+      .rules-list { grid-template-columns: 1fr; }
+      .rules-head { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ---- Not-on-the-list aside ---- */
+    .aside-not {
+      padding: clamp(100px, 12vw, 160px) 0;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--line);
+    }
+    .aside-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 8vw, 140px);
+      align-items: center;
+    }
+    .aside-not h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+    }
+    .aside-not h2 em { color: var(--brass); font-style: italic; }
+    .aside-not p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 52ch;
+    }
+    .aside-not p + p { margin-top: 20px; }
+    @media (max-width: 900px) { .aside-grid { grid-template-columns: 1fr; } }
+
+    /* ---- CTA band ---- */
+    .ctaband {
+      background: var(--paper);
+      padding: clamp(100px, 12vw, 160px) 0;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    .ctaband .eyebrow { margin-bottom: 32px; }
+    .ctaband h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 112px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin-bottom: 40px;
+    }
+    .ctaband h2 em { color: var(--brass); font-style: italic; }
+    .ctaband p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 52ch;
+      margin: 0 auto 48px;
+    }
+    .ctaband-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body data-page="products">
+
+  <div data-nav></div>
+
+  <!-- PAGE HEADER -->
+  <section class="ph">
+    <div class="wrap">
+      <div class="ph-top">
+        <div>
+          <div class="eyebrow">Products</div>
+          <h1>The <em>specified</em> house.</h1>
+        </div>
+        <div class="ph-meta">
+          <div>The catalog, edited.</div>
+          <div>Fewer lines.</div>
+          <div style="color: var(--brass);">,  Chosen to last.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITOR'S INTRO -->
+  <section class="editor">
+    <div class="wrap">
+      <div class="editor-grid">
+        <div class="editor-left reveal">
+          <div class="eyebrow">From the editor</div>
+          <div class="editor-mark">&ldquo;<sup>01</sup></div>
+        </div>
+        <div class="editor-right reveal reveal-delay-2">
+          <h2>We specify what we would install <em>in our own houses.</em></h2>
+          <p>There is no master catalog on this site, and there never will be. Over the years we've tried nearly everything that comes to market, kept very little of it, and earned the right to represent the lines that remain. A handful of manufacturers in lighting, shading, audio, video, and control.</p>
+          <p>The pages below describe how we think about each category, the questions we ask before specifying, and what "right" looks like when the install is finished. If a product you've seen isn't listed, ask. Often we've looked at it, sometimes we've fixed it, and occasionally we quietly recommend against it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATES -->
+  <section class="plates">
+    <div class="plates-head">
+      <div class="eyebrow reveal">The selected</div>
+      <h2 class="reveal reveal-delay-2">Six categories <em>edited into the house.</em></h2>
+    </div>
+
+    <!-- 01 LIGHT -->
+    <article class="plate reveal">
+      <div class="plate-img photo tone-warm grain" data-caption="Plate 01 · Keypad, engraved brass · 2025">
+        <img src="images/wall-thermostat.jpg" alt="Lighting keypad, flush mount" />
+      </div>
+      <div class="plate-body">
+        <div class="plate-head">
+          <span class="plate-num">Plate § 01</span>
+          <span class="plate-cat">Light</span>
+        </div>
+        <div>
+          <h3>Fixtures <em>drawn to the room.</em></h3>
+          <p class="lede">A lighting plan is an architectural plan, not a shopping list. We draw it against the floor plans: where light falls, where it doesn't, which circuits dim together, and which finishes match the trim you've already committed to.</p>
+        </div>
+        <dl class="criteria">
+          <dt>We look for</dt>
+          <dd>Drivers that <em>don't buzz,</em> dimmers that hold their curve, and keypads we can engrave to the household.</dd>
+          <dt>We avoid</dt>
+          <dd>Colour-changing novelty, glowing logos, and anything that defaults to an app instead of a wall.</dd>
+          <dt>On finish</dt>
+          <dd>Five metal finishes, paintable faceplates. Nothing plastic where a hand will land.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 02 SHADE -->
+    <article class="plate reveal">
+      <div class="plate-img photo tone-warm grain" data-caption="Plate 02 · Dual-roller, pocketed headrail · 2025">
+        <img src="images/empty-modern.jpg" alt="Motorized shades" />
+      </div>
+      <div class="plate-body">
+        <div class="plate-head">
+          <span class="plate-num">Plate § 02</span>
+          <span class="plate-cat">Shade</span>
+        </div>
+        <div>
+          <h3>Shading <em>worked into the wall.</em></h3>
+          <p class="lede">The shades should disappear when lifted and look like fabric, not hardware, when lowered. We design the pocket with the architect, so the headrail lives inside the ceiling detail rather than below it, and we program the run against your sun angles.</p>
+        </div>
+        <dl class="criteria">
+          <dt>We look for</dt>
+          <dd>Quiet motors, dual-roller stacks (day-sheer, night-blackout), and fabrics that pass the hand test.</dd>
+          <dt>We avoid</dt>
+          <dd>Exposed mounts, battery-only systems in high-window rooms, and dangling cords of any kind.</dd>
+          <dt>On control</dt>
+          <dd>Schedule-and-scene first. Voice and app are <em>nice to have,</em> not <em>nice to need.</em></dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 03 SOUND -->
+    <article class="plate reveal">
+      <div class="plate-img photo tone-warm grain" data-caption="Plate 03 · In-ceiling, calibration mic set · 2025">
+        <img src="images/modern-interior.jpg" alt="Ceiling speakers" />
+      </div>
+      <div class="plate-body">
+        <div class="plate-head">
+          <span class="plate-num">Plate § 03</span>
+          <span class="plate-cat">Sound</span>
+        </div>
+        <div>
+          <h3>Loudspeakers <em>you can't point to.</em></h3>
+          <p class="lede">The ceiling grille should read as the smoke detector's quieter cousin, and the invisible series should read as drywall. Each room gets tuned with a calibration microphone so the back of the kitchen doesn't boom and the dining room doesn't hush.</p>
+        </div>
+        <dl class="criteria">
+          <dt>We look for</dt>
+          <dd>Flush bezels, paintable trim rings, and amplifiers that size the zones honestly.</dd>
+          <dt>We avoid</dt>
+          <dd>Cone speakers parked in bookshelves, Bluetooth-only rooms, and subwoofers anywhere a dinner guest can see one.</dd>
+          <dt>On outdoors</dt>
+          <dd>Landscape satellites on a zoned bus, routed with the irrigation, tuned for the yard's geometry.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 04 SCREEN -->
+    <article class="plate reveal">
+      <div class="plate-img photo tone-warm grain" data-caption="Plate 04 · Flush-recessed display · 2025">
+        <img src="images/living-room-tv.jpg" alt="Flush mounted television" />
+      </div>
+      <div class="plate-body">
+        <div class="plate-head">
+          <span class="plate-num">Plate § 04</span>
+          <span class="plate-cat">Screen</span>
+        </div>
+        <div>
+          <h3>Displays set <em>flat to the wall.</em></h3>
+          <p class="lede">A television out of its box is a department store. Recessed into the rock and matted flush, it reads as art until it's wanted. We handle the rough-in box, the media closet, and the ISF calibration that comes after the contractor has left.</p>
+        </div>
+        <dl class="criteria">
+          <dt>We look for</dt>
+          <dd>Anti-glare panels, art-mode matting, and cable paths that don't involve a visible raceway.</dd>
+          <dt>We avoid</dt>
+          <dd>"Smart" TVs as the source of record, black-mirror bezels in white-wall rooms, and displays that can't be woken by keypad.</dd>
+          <dt>On projection</dt>
+          <dd>Reserved for dedicated rooms with light control. The rest of the house belongs to direct-view.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 05 CONTROL -->
+    <article class="plate reveal">
+      <div class="plate-img photo tone-warm grain" data-caption="Plate 05 · Wall keypad, custom engrave · 2025">
+        <img src="images/smart-tablet.jpg" alt="Control surface" />
+      </div>
+      <div class="plate-body">
+        <div class="plate-head">
+          <span class="plate-num">Plate § 05</span>
+          <span class="plate-cat">Control</span>
+        </div>
+        <div>
+          <h3>One app and <em>many fewer switches.</em></h3>
+          <p class="lede">The point of control isn't more control. It's fewer things to remember. Eight switches become one keypad. A scene called "Dinner" handles the dining pendants, the pool lights, and the outdoor speakers in a single press. A houseguest can use it without being briefed.</p>
+        </div>
+        <dl class="criteria">
+          <dt>We look for</dt>
+          <dd>Local processors, keypad engraving, and apps that load in under two seconds on bad hotel Wi-Fi.</dd>
+          <dt>We avoid</dt>
+          <dd>Cloud-only setups, systems that orphan when the vendor pivots, and anything requiring a PhD in scenes.</dd>
+          <dt>On routines</dt>
+          <dd>We build five. You live with them for a month. Then we come back and adjust.</dd>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 06 ROOMS -->
+    <article class="plate reveal">
+      <div class="plate-img photo tone-warm grain" data-caption="Plate 06 · Dedicated theater, acoustic treatment · 2025">
+        <img src="images/theater-dark.jpg" alt="Home theater seating" />
+      </div>
+      <div class="plate-body">
+        <div class="plate-head">
+          <span class="plate-num">Plate § 06</span>
+          <span class="plate-cat">Rooms</span>
+        </div>
+        <div>
+          <h3>Spaces <em>built for one purpose.</em></h3>
+          <p class="lede">A dedicated theater, a simulator bay, a media lounge. When a room has one job, we treat it like a studio, isolation, acoustic panels dressed as wall treatments, riser seating measured to the sightline, and a source rack that no one has to see.</p>
+        </div>
+        <dl class="criteria">
+          <dt>We look for</dt>
+          <dd>Fabrics that absorb without reading as studio, seating that fits <em>your</em> body, and racks in ventilated closets.</dd>
+          <dt>We avoid</dt>
+          <dd>Retrofit rooms sold as dedicated, recliner-pit seating where a banquette is better, and simulators that weren't sized for the ceiling.</dd>
+          <dt>On delivery</dt>
+          <dd>Two calibration visits after punch: one at move-in, one at ninety days.</dd>
+        </dl>
+      </div>
+    </article>
+  </section>
+
+  <!-- SELECTION RULES -->
+  <section class="rules">
+    <div class="wrap rules-inner">
+      <div class="rules-head">
+        <div class="reveal">
+          <div class="eyebrow">How we choose</div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <h2>Four rules <em>held for decades.</em></h2>
+        </div>
+      </div>
+      <div class="rules-list">
+        <div class="rule reveal">
+          <div class="n">§ i</div>
+          <h4>Serviceable by <em>a local person.</em></h4>
+          <p>If the closest authorized technician is five states away, we don't carry the line. Our name is on the install and the service ticket.</p>
+        </div>
+        <div class="rule reveal reveal-delay-2">
+          <div class="n">§ ii</div>
+          <h4>Pretty <em>without the app.</em></h4>
+          <p>The physical object matters. A keypad, a speaker grille, a thermostat face. If it's ugly on the wall, no amount of good software will rescue it.</p>
+        </div>
+        <div class="rule reveal reveal-delay-3">
+          <div class="n">§ iii</div>
+          <h4>Works in <em>a brownout.</em></h4>
+          <p>Local processing, not cloud dependency. The lights should come on when the internet doesn't.</p>
+        </div>
+        <div class="rule reveal reveal-delay-4">
+          <div class="n">§ iv</div>
+          <h4>Will still be <em>shipping in a decade.</em></h4>
+          <p>We look for firms with long service bulletins and parts warehouses, not trend cycles. Most homes we installed in 2015 are still running the same gear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT ON THE LIST -->
+  <section class="aside-not">
+    <div class="wrap">
+      <div class="aside-grid">
+        <div class="reveal">
+          <h2>Something specific <em>in mind?</em></h2>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <p>Ask. We've evaluated most of what's sold in this category and have an opinion on nearly all of it. Sometimes the answer is, "yes, let us order one." Sometimes it's, "here's what we'd install instead, and why." Either way, we'll tell you plainly.</p>
+          <p>The showroom in Winter Garden is set up for side-by-side comparisons: keypads against keypads, fabrics against fabrics, speakers tuned to the same reference track. Walkthroughs are by appointment.</p>
+          <a class="btn mt-32" href="contact.html">
+            Book a walkthrough
+            <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="eyebrow">At the front of residential technology</div>
+      <h2>The next chapter<br/>of your <em>home.</em></h2>
+      <p>Tell us what you're building, renovating, or rethinking. <em>We'll text back to confirm within thirty minutes.</em></p>
+      <div class="ctaband-actions">
+        <a class="btn btn-brass" href="contact.html">
+          Begin an inquiry
+          <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <a class="btn" href="tel:4076964411">Call (407) 696-4411</a>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+
+  <script src="shared/shared.js"></script>
+</body>
+</html>

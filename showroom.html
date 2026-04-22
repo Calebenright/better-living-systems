@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Showroom, Better Living Systems</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/styles.css" />
+  <style>
+    /* ---- Full-bleed hero ---- */
+    .rh {
+      position: relative;
+      min-height: clamp(520px, 80vh, 820px);
+      background: var(--ink);
+      color: var(--ivory);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .rh-bg {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .rh-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,24,20,0.35) 0%,
+        rgba(26,24,20,0.2) 35%,
+        rgba(26,24,20,0.75) 85%,
+        rgba(26,24,20,0.95) 100%
+      );
+    }
+    .rh-top {
+      position: relative; z-index: 2;
+      padding: 56px 0;
+    }
+    .rh-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+    }
+    .rh-eyebrow::before { content: 'By appointment, '; color: var(--brass-2); }
+    .rh-bottom {
+      position: relative; z-index: 2;
+      padding: 0 0 64px;
+    }
+    .rh-bottom h1 {
+      font-family: var(--serif);
+      font-size: clamp(72px, 14vw, 240px);
+      line-height: 0.82;
+      letter-spacing: -0.04em;
+      color: var(--ivory);
+      max-width: 14ch;
+    }
+    .rh-bottom h1 em { color: var(--brass-soft); font-style: italic; }
+    .rh-meta {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(244,239,230,0.14);
+      max-width: 900px;
+    }
+    .rh-meta .k {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-soft);
+      margin-bottom: 10px;
+    }
+    .rh-meta .v {
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      color: var(--ivory);
+    }
+    @media (max-width: 800px) {
+      .rh-meta { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ---- What you'll see ---- */
+    .see {
+      padding: clamp(100px, 12vw, 180px) 0;
+      background: var(--paper);
+    }
+    .see-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 8vw, 140px);
+      align-items: start;
+    }
+    .see-left .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .see-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin-bottom: 32px;
+      max-width: 14ch;
+    }
+    .see-left h2 em { color: var(--brass); font-style: italic; }
+    .see-left p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 52ch;
+    }
+    .see-left p + p { margin-top: 20px; }
+
+    .inv { border-top: 1px solid var(--ink); }
+    .inv-row {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .inv-row .n { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--brass); }
+    .inv-row .name { font-family: var(--serif); font-size: 26px; letter-spacing: -0.015em; line-height: 1.2; }
+    .inv-row .name em { color: var(--brass); font-style: italic; }
+    .inv-row .name .sub { display: block; font-family: var(--sans); font-size: 13px; color: var(--ink-soft); margin-top: 6px; letter-spacing: 0; }
+    .inv-row .count { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft); white-space: nowrap; }
+    .inv-row .count strong { color: var(--brass); font-weight: 500; }
+    @media (max-width: 900px) {
+      .see-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ---- Photo plates (six-up) ---- */
+    .plates {
+      padding: clamp(80px, 10vw, 140px) 0 clamp(100px, 12vw, 160px);
+      background: var(--ivory);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .plates-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+    .plates-head .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .plates-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      max-width: 16ch;
+    }
+    .plates-head h2 em { color: var(--brass); font-style: italic; }
+    .plates-head p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 34ch;
+      line-height: 1.6;
+    }
+    .plates-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+    .plate { position: relative; overflow: hidden; }
+    .plate .photo { width: 100%; height: 100%; position: absolute; inset: 0; }
+    .plate .meta {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      background: rgba(26, 24, 20, 0.75);
+      padding: 8px 10px;
+      backdrop-filter: blur(4px);
+    }
+    .plate .title {
+      position: absolute;
+      left: 20px; top: 20px;
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.1;
+      color: var(--ivory);
+      background: rgba(26, 24, 20, 0.6);
+      padding: 10px 14px;
+      backdrop-filter: blur(4px);
+      max-width: 72%;
+    }
+    .plate .title em { color: var(--brass-soft); font-style: italic; }
+
+    /* Layout: rows */
+    .plate.pa { grid-column: span 7; aspect-ratio: 4/3; }
+    .plate.pb { grid-column: span 5; aspect-ratio: 4/3; }
+    .plate.pc { grid-column: span 4; aspect-ratio: 4/5; }
+    .plate.pd { grid-column: span 4; aspect-ratio: 4/5; }
+    .plate.pe { grid-column: span 4; aspect-ratio: 4/5; }
+    .plate.pf { grid-column: span 12; aspect-ratio: 21/9; }
+    @media (max-width: 900px) {
+      .plate.pa, .plate.pb, .plate.pc, .plate.pd, .plate.pe, .plate.pf { grid-column: span 12; aspect-ratio: 4/3; }
+    }
+
+    /* ---- Visit walkthrough ---- */
+    .walk {
+      padding: clamp(100px, 12vw, 180px) 0;
+      background: var(--paper);
+    }
+    .walk-head {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(48px, 6vw, 96px);
+      align-items: end;
+      margin-bottom: 80px;
+    }
+    .walk-head .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .walk-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+    }
+    .walk-head h2 em { color: var(--brass); font-style: italic; }
+    .walk-head .lede {
+      font-size: 17px;
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 44ch;
+    }
+
+    .walk-track { border-top: 1px solid var(--ink); }
+    .walk-step {
+      display: grid;
+      grid-template-columns: 120px 1fr 320px auto;
+      gap: clamp(24px, 4vw, 64px);
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .walk-step .n {
+      font-family: var(--serif);
+      font-size: 48px;
+      line-height: 0.9;
+      color: var(--brass);
+      font-style: italic;
+      letter-spacing: -0.02em;
+    }
+    .walk-step .head {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 20ch;
+    }
+    .walk-step .head em { color: var(--brass); font-style: italic; }
+    .walk-step .body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-2);
+    }
+    .walk-step .time {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .walk-step { grid-template-columns: 80px 1fr; }
+      .walk-step .body, .walk-step .time { grid-column: 2; }
+      .walk-step .n { font-size: 40px; }
+      .walk-head { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ---- Book a visit ---- */
+    .book {
+      background: var(--ink);
+      color: var(--ivory);
+      padding: clamp(100px, 12vw, 180px) 0;
+    }
+    .book-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(48px, 8vw, 120px);
+      align-items: start;
+    }
+    .book-left .eyebrow { color: var(--brass-2); margin-bottom: 24px; }
+    .book-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+      max-width: 14ch;
+    }
+    .book-left h2 em { color: var(--brass-soft); font-style: italic; }
+    .book-left p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(244, 239, 230, 0.8);
+      max-width: 46ch;
+      margin-bottom: 20px;
+    }
+    .book-left .phone {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .book-left .phone .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-2); margin-bottom: 12px; }
+    .book-left .phone .v { font-family: var(--serif); font-size: 40px; letter-spacing: -0.02em; }
+    .book-left .phone .d { font-size: 13px; color: rgba(244,239,230,0.6); margin-top: 6px; }
+
+    .bform {
+      background: rgba(244, 239, 230, 0.04);
+      border: 1px solid rgba(244, 239, 230, 0.12);
+      padding: clamp(28px, 4vw, 48px);
+    }
+    .bform .eyebrow { color: var(--brass-2); margin-bottom: 24px; }
+    .bform h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .bform h3 em { color: var(--brass-soft); font-style: italic; }
+    .bfield { margin-bottom: 20px; }
+    .bfield .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass-2);
+      margin-bottom: 10px;
+    }
+    .bchips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .bchip {
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 10px 16px;
+      border: 1px solid rgba(244, 239, 230, 0.2);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ivory);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .bchip:hover { border-color: var(--brass-2); }
+    .bchip.on { background: var(--brass); border-color: var(--brass); color: var(--ivory); }
+    .binput {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(244, 239, 230, 0.06);
+      border: 1px solid rgba(244, 239, 230, 0.14);
+      color: var(--ivory);
+      font: inherit;
+      font-size: 15px;
+      transition: border-color .2s, background .2s;
+    }
+    .binput::placeholder { color: rgba(244,239,230,0.35); }
+    .binput:focus { outline: none; border-color: var(--brass-2); background: rgba(244,239,230,0.1); }
+    .brow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .bform .submit {
+      margin-top: 24px;
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--brass);
+      border: 0;
+      color: var(--ivory);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+    }
+    .bform .submit:hover { background: var(--brass-2); }
+
+    @media (max-width: 900px) {
+      .book-grid { grid-template-columns: 1fr; gap: 48px; }
+      .brow { grid-template-columns: 1fr; }
+    }
+
+    /* ---- Directions ---- */
+    .directions {
+      padding: clamp(100px, 12vw, 160px) 0;
+      background: var(--paper);
+    }
+    .dir-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 8vw, 120px);
+      align-items: center;
+    }
+    .dir-left .eyebrow { color: var(--brass); margin-bottom: 24px; }
+    .dir-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      margin-bottom: 32px;
+      max-width: 14ch;
+    }
+    .dir-left h2 em { color: var(--brass); font-style: italic; }
+    .dir-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      margin-top: 32px;
+    }
+    .dir-detail .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); margin-bottom: 8px; }
+    .dir-detail .v { font-family: var(--serif); font-size: 22px; letter-spacing: -0.015em; line-height: 1.3; }
+
+    .dir-map {
+      aspect-ratio: 1/1;
+      background: var(--ivory);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .dir-map svg { width: 100%; height: 100%; display: block; }
+    .dir-map .pin-label {
+      position: absolute;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--paper);
+      padding: 6px 10px;
+      border: 1px solid var(--ink);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -130%);
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .dir-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ---- CTA band ---- */
+    .ctaband {
+      background: var(--paper);
+      padding: clamp(100px, 12vw, 160px) 0;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    .ctaband .eyebrow { margin-bottom: 32px; }
+    .ctaband h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 112px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin-bottom: 40px;
+    }
+    .ctaband h2 em { color: var(--brass); font-style: italic; }
+    .ctaband p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      max-width: 52ch;
+      margin: 0 auto 48px;
+    }
+    .ctaband-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body data-page="showroom">
+
+  <div data-nav></div>
+
+  <!-- HERO -->
+  <section class="rh" data-screen-label="Showroom hero">
+    <div class="rh-bg" style="background-image: url('images/living-room-tv.jpg'); filter: saturate(0.85) brightness(0.82);"></div>
+
+    <div class="rh-top">
+      <div class="wrap">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+          <div class="rh-eyebrow">The Showroom</div>
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--brass-soft); text-transform: uppercase;">Plate No. 01 · Winter Garden, FL</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rh-bottom">
+      <div class="wrap">
+        <h1>Visit <em>the room.</em></h1>
+        <div class="rh-meta">
+          <div>
+            <div class="k">Address</div>
+            <div class="v">Winter Garden, FL<br/>(exact with confirmation)</div>
+          </div>
+          <div>
+            <div class="k">Hours</div>
+            <div class="v">Mon–Sat<br/>10am – 5pm</div>
+          </div>
+          <div>
+            <div class="k">Visits</div>
+            <div class="v">By appointment<br/>Walk-ins welcome</div>
+          </div>
+          <div>
+            <div class="k">Typical length</div>
+            <div class="v">One hour<br/>Over coffee</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL SEE -->
+  <section class="see" data-screen-label="Showroom inventory">
+    <div class="wrap">
+      <div class="see-grid">
+        <div class="see-left reveal">
+          <div class="eyebrow">In the room</div>
+          <h2>What a catalog <em>can't do.</em></h2>
+          <p>Most of what we specify for a house does not photograph honestly. A keypad's engraving needs a finger to trace it. A shade fabric needs to drape, not sit flat on a card. A speaker has a voicing that can only be heard in the air of a room, at the listening position it is being sold for.</p>
+          <p>The showroom is built around that fact. Everything on display is wired, powered, and ready to be used the way it would be used in your house. We put you in front of it, side by side with its alternatives, and let you decide.</p>
+        </div>
+
+        <div class="inv reveal reveal-delay-2">
+          <div class="inv-row">
+            <div class="n">§ 01</div>
+            <div class="name">Keypad <em>wall</em>
+              <span class="sub">Every finish, every engraving color, wired to a working dimming load.</span>
+            </div>
+            <div class="count"><strong>34</strong> keypads</div>
+          </div>
+          <div class="inv-row">
+            <div class="n">§ 02</div>
+            <div class="name">Fabric <em>library</em>
+              <span class="sub">Roller, drapery, and venetian fabrics, with true drape samples to backlight.</span>
+            </div>
+            <div class="count"><strong>140+</strong> swatches</div>
+          </div>
+          <div class="inv-row">
+            <div class="n">§ 03</div>
+            <div class="name">Listening <em>bay</em>
+              <span class="sub">Three calibrated systems, A/B switchable, treated room with known targets.</span>
+            </div>
+            <div class="count"><strong>3</strong> voicings</div>
+          </div>
+          <div class="inv-row">
+            <div class="n">§ 04</div>
+            <div class="name">Display <em>wall</em>
+              <span class="sub">A recessed box, a painted frame, a masked bezel, side by side at eye height.</span>
+            </div>
+            <div class="count"><strong>4</strong> treatments</div>
+          </div>
+          <div class="inv-row">
+            <div class="n">§ 05</div>
+            <div class="name">Control <em>surfaces</em>
+              <span class="sub">App on tablet, wall panel, voice, and keypad, all on the same live system.</span>
+            </div>
+            <div class="count"><strong>5</strong> interfaces</div>
+          </div>
+          <div class="inv-row">
+            <div class="n">§ 06</div>
+            <div class="name">Media <em>closet</em>
+              <span class="sub">A fully cabled closet with its doors open. The part of the house you will never see.</span>
+            </div>
+            <div class="count"><strong>1</strong> to study</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO PLATES -->
+  <section class="plates" data-screen-label="Showroom plates">
+    <div class="wrap">
+      <div class="plates-head">
+        <div class="reveal">
+          <div class="eyebrow">On the floor</div>
+          <h2>A studio, <em>not a showroom</em> in the car-dealership sense.</h2>
+        </div>
+        <p class="reveal reveal-delay-2">No velvet ropes, no spotlit pedestals. The lights are on the dimmers they are meant to be on, and everything is connected to everything else.</p>
+      </div>
+
+      <div class="plates-grid">
+        <figure class="plate pa reveal">
+          <div class="photo tone-warm grain"><img src="images/living-room-beige.jpg" alt="Keypad wall"/></div>
+          <div class="title">The <em>keypad</em> wall</div>
+          <div class="meta">Plate No. 02</div>
+        </figure>
+        <figure class="plate pb reveal reveal-delay-2">
+          <div class="photo tone-warm grain"><img src="images/wall-thermostat.jpg" alt="Control surfaces"/></div>
+          <div class="title">Control <em>surfaces</em></div>
+          <div class="meta">Plate No. 03</div>
+        </figure>
+
+        <figure class="plate pc reveal">
+          <div class="photo tone-warm grain"><img src="images/modern-interior.jpg" alt="Fabric library"/></div>
+          <div class="title">Fabric <em>library</em></div>
+          <div class="meta">Plate No. 04</div>
+        </figure>
+        <figure class="plate pd reveal reveal-delay-2">
+          <div class="photo tone-dark grain"><img src="images/theater-dark.jpg" alt="Listening bay"/></div>
+          <div class="title">The <em>listening</em> bay</div>
+          <div class="meta">Plate No. 05</div>
+        </figure>
+        <figure class="plate pe reveal reveal-delay-3">
+          <div class="photo tone-warm grain"><img src="images/smart-tablet.jpg" alt="Drafting table"/></div>
+          <div class="title">At the <em>table</em></div>
+          <div class="meta">Plate No. 06</div>
+        </figure>
+
+        <figure class="plate pf reveal">
+          <div class="photo tone-warm grain"><img src="images/empty-modern.jpg" alt="Showroom long view"/></div>
+          <div class="title">The <em>long view</em></div>
+          <div class="meta">Plate No. 07</div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT WALKTHROUGH -->
+  <section class="walk" data-screen-label="Showroom visit">
+    <div class="wrap">
+      <div class="walk-head">
+        <div class="reveal">
+          <div class="eyebrow">A typical visit</div>
+          <h2>One hour, <em>five movements.</em></h2>
+        </div>
+        <p class="lede reveal reveal-delay-2">There is no presentation deck and no salesroom pitch. A visit is a sequence of questions, followed by the physical materials that answer them. Come in with plans if you have them. Come without, and we'll draw.</p>
+      </div>
+
+      <div class="walk-track">
+        <div class="walk-step reveal">
+          <div class="n">01</div>
+          <div class="head">A coffee and <em>a conversation.</em></div>
+          <div class="body">The first ten minutes are the question most people never get asked: what do you want the house to feel like? Everything we show afterward is answerable to that.</div>
+          <div class="time">~ 10 min</div>
+        </div>
+        <div class="walk-step reveal">
+          <div class="n">02</div>
+          <div class="head">Plans on the <em>table.</em></div>
+          <div class="body">If you have architectural drawings, Pinterest boards, a napkin sketch, they come out now. We mark them up together, circling the rooms we'll return to.</div>
+          <div class="time">~ 15 min</div>
+        </div>
+        <div class="walk-step reveal">
+          <div class="n">03</div>
+          <div class="head">Hands on the <em>materials.</em></div>
+          <div class="body">Keypads are felt. Fabric is draped. Finishes are held against the palette you brought. This is the part that can't happen on a website.</div>
+          <div class="time">~ 15 min</div>
+        </div>
+        <div class="walk-step reveal">
+          <div class="n">04</div>
+          <div class="head">Listen, then <em>look.</em></div>
+          <div class="body">Three short pieces of music in the listening bay. Two film scenes in the display treatment that matches your ceiling height. You tell us which you prefer. We note it.</div>
+          <div class="time">~ 15 min</div>
+        </div>
+        <div class="walk-step reveal">
+          <div class="n">05</div>
+          <div class="head">A <em>next step,</em> in writing.</div>
+          <div class="body">No pressure, no same-day decision. You leave with a one-page summary of what you chose, what we'd choose next, and a date held on the calendar if you want one.</div>
+          <div class="time">~ 5 min</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A VISIT -->
+  <section class="book" data-screen-label="Showroom booking">
+    <div class="wrap">
+      <div class="book-grid">
+        <div class="book-left reveal">
+          <div class="eyebrow">Book a visit</div>
+          <h2>Hold an hour, <em>in person.</em></h2>
+          <p>Appointments are one hour, with an optional second half-hour if we're deep in a question. Bring your co-conspirator, your architect, your kid who cares more about acoustics than you do. Parking is on site.</p>
+
+          <div class="phone">
+            <div class="k">Or call the studio</div>
+            <div class="v">(407) 696-4411</div>
+            <div class="d">A real person answers Monday to Saturday, 8am to 6pm.</div>
+          </div>
+        </div>
+
+        <form class="bform" id="bform" onsubmit="return false;">
+          <div class="eyebrow">A short request</div>
+          <h3>Tell us <em>when</em> works.</h3>
+
+          <div class="bfield">
+            <div class="label">Preferred day</div>
+            <div class="bchips" data-field="day">
+              <button type="button" class="bchip">Weekday morning</button>
+              <button type="button" class="bchip">Weekday afternoon</button>
+              <button type="button" class="bchip">Saturday</button>
+              <button type="button" class="bchip">Any time</button>
+            </div>
+          </div>
+
+          <div class="bfield">
+            <div class="label">What you're working on</div>
+            <div class="bchips" data-field="scope">
+              <button type="button" class="bchip">New build</button>
+              <button type="button" class="bchip">Renovation</button>
+              <button type="button" class="bchip">A single room</button>
+              <button type="button" class="bchip">Exploring</button>
+            </div>
+          </div>
+
+          <div class="bfield">
+            <div class="label">How to reach you</div>
+            <div class="brow">
+              <input class="binput" placeholder="First name" autocomplete="given-name" />
+              <input class="binput" placeholder="Last name" autocomplete="family-name" />
+            </div>
+            <div class="brow" style="margin-top: 12px;">
+              <input class="binput" type="tel" placeholder="Mobile (for text confirmation)" autocomplete="tel" />
+              <input class="binput" type="email" placeholder="Email" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="bfield">
+            <div class="label">Anything we should know</div>
+            <textarea class="binput" rows="3" placeholder="Optional. Architect's name, a sketch, a question, a room that matters."></textarea>
+          </div>
+
+          <button type="button" class="submit" id="bsubmit">
+            Request an appointment
+            <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+
+          <div id="bsuccess" style="display:none; margin-top: 24px; padding: 16px 20px; border: 1px solid rgba(201,184,150,0.4); background: rgba(201,184,150,0.08); font-size: 14px; color: var(--brass-soft); line-height: 1.55;">
+            ✓ Received. You'll have a confirmation text within thirty minutes, from a real person at the studio.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTIONS -->
+  <section class="directions" data-screen-label="Showroom directions">
+    <div class="wrap">
+      <div class="dir-grid">
+        <div class="dir-left reveal">
+          <div class="eyebrow">Getting here</div>
+          <h2>Just off <em>Plant Street.</em></h2>
+          <p style="font-size: 17px; line-height: 1.7; color: var(--ink-2); max-width: 48ch;">The studio is a short walk from downtown Winter Garden, on a tree-lined side street about twenty minutes west of downtown Orlando and ten minutes off the Turnpike. Ample parking on site, shaded.</p>
+
+          <div class="dir-detail">
+            <div>
+              <div class="k">From Downtown Orlando</div>
+              <div class="v">~ 22 minutes<br/>408 West, exit Good Homes</div>
+            </div>
+            <div>
+              <div class="k">From Windermere / Dr. Phillips</div>
+              <div class="v">~ 15 minutes<br/>via Winter Garden-Vineland</div>
+            </div>
+            <div>
+              <div class="k">From MCO (Airport)</div>
+              <div class="v">~ 35 minutes<br/>528 West then 408</div>
+            </div>
+            <div>
+              <div class="k">Nearest coffee</div>
+              <div class="v">Axum Coffee, Plant St.<br/>We'll buy you one on arrival</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dir-map reveal reveal-delay-2">
+          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- grid streets -->
+            <defs>
+              <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#d9d1bf" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="400" fill="#f4efe6"/>
+            <rect width="400" height="400" fill="url(#grid)"/>
+
+            <!-- A few named streets -->
+            <line x1="0" y1="200" x2="400" y2="200" stroke="#1a1814" stroke-width="1.2" opacity="0.9"/>
+            <line x1="200" y1="0" x2="200" y2="400" stroke="#1a1814" stroke-width="1.2" opacity="0.9"/>
+            <line x1="0" y1="100" x2="400" y2="100" stroke="#4a463e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="0" y1="300" x2="400" y2="300" stroke="#4a463e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="100" y1="0" x2="100" y2="400" stroke="#4a463e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="300" y1="0" x2="300" y2="400" stroke="#4a463e" stroke-width="0.7" opacity="0.5"/>
+
+            <!-- A little lake -->
+            <ellipse cx="325" cy="330" rx="52" ry="40" fill="#c9b896" opacity="0.45" stroke="#8b6f47" stroke-width="0.6"/>
+            <text x="325" y="335" font-family="Instrument Serif" font-size="11" font-style="italic" fill="#4a463e" text-anchor="middle">Lake Apopka</text>
+
+            <!-- Plant Street label -->
+            <text x="10" y="195" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#4a463e">W PLANT ST</text>
+            <text x="205" y="14" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#4a463e">DILLARD ST</text>
+
+            <!-- Pin location -->
+            <circle cx="220" cy="178" r="22" fill="none" stroke="#8b6f47" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="220" cy="178" r="12" fill="none" stroke="#8b6f47" stroke-width="0.8" opacity="0.5"/>
+            <circle cx="220" cy="178" r="5" fill="#8b6f47"/>
+
+            <!-- N arrow -->
+            <g transform="translate(360, 40)">
+              <path d="M 0 -12 L 6 8 L 0 4 L -6 8 Z" fill="#1a1814"/>
+              <text x="0" y="22" font-family="JetBrains Mono" font-size="8" letter-spacing="1.5" fill="#4a463e" text-anchor="middle">N</text>
+            </g>
+
+            <!-- Scale -->
+            <g transform="translate(20, 370)">
+              <line x1="0" y1="0" x2="60" y2="0" stroke="#1a1814" stroke-width="1"/>
+              <line x1="0" y1="-3" x2="0" y2="3" stroke="#1a1814" stroke-width="1"/>
+              <line x1="60" y1="-3" x2="60" y2="3" stroke="#1a1814" stroke-width="1"/>
+              <text x="30" y="15" font-family="JetBrains Mono" font-size="8" letter-spacing="1" fill="#4a463e" text-anchor="middle">500 FT</text>
+            </g>
+          </svg>
+          <div class="pin-label" style="transform: translate(calc(-50% + 20px), calc(-50% - 50px));">The Showroom</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="eyebrow">At the front of residential technology</div>
+      <h2>The next chapter<br/>of your <em>home.</em></h2>
+      <p>Tell us what you're building, renovating, or rethinking. <em>We'll text back to confirm within thirty minutes.</em></p>
+      <div class="ctaband-actions">
+        <a class="btn btn-brass" href="contact.html">
+          Begin an inquiry
+          <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+        <a class="btn" href="tel:4076964411">Call (407) 696-4411</a>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+  <script src="shared/shared.js"></script>
+  <script>
+    (function () {
+      // chip multi-select-groups are single-select in this form
+      document.querySelectorAll('.bchips').forEach(group => {
+        group.addEventListener('click', e => {
+          const btn = e.target.closest('.bchip');
+          if (!btn) return;
+          group.querySelectorAll('.bchip').forEach(c => c.classList.remove('on'));
+          btn.classList.add('on');
+        });
+      });
+      // success fake
+      const submit = document.getElementById('bsubmit');
+      const success = document.getElementById('bsuccess');
+      if (submit) {
+        submit.addEventListener('click', () => {
+          success.style.display = 'block';
+          submit.textContent = 'Sent ✓';
+          submit.style.background = 'var(--ink-2)';
+          submit.style.pointerEvents = 'none';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
