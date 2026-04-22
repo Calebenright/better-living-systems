@@ -175,7 +175,7 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 }
 .nav-brand-mark img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .nav-brand-word { display: inline-flex; align-items: center; flex-shrink: 0; }
-.nav-brand-word img { display: block; height: 14px; width: auto; }
+.nav-brand-word img { display: block; height: 34px; width: auto; }
 .nav-links {
   display: flex;
   gap: 28px;

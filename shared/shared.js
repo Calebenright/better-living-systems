@@ -44,7 +44,7 @@
     host.innerHTML = `
       <footer class="footer">
         <div class="wrap">
-          <div class="footer-brand-mark" style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap;"><img src="images/logo-mark-light.png" alt="BLS" style="height:120px; width:auto;"/><img src="images/logo-word-light.png" alt="Better Living Systems" style="height:48px; width:auto; margin-bottom:16px;"/></div>
+          <div class="footer-brand-mark" style="display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap;"><img src="images/logo-mark-light.png" alt="BLS" style="height:48px; width:auto;"/><img src="images/logo-word-light.png" alt="Better Living Systems" style="height:48px; width:auto;"/></div>
           <div class="footer-grid">
             <div class="footer-col">
               <h4>Est. 1979</h4>
