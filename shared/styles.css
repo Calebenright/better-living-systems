@@ -166,6 +166,7 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
   font-size: 22px;
   letter-spacing: -0.01em;
   white-space: nowrap;
+  min-width: max-content;
 }
 .nav-brand-mark {
   height: 34px;
@@ -175,7 +176,7 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 }
 .nav-brand-mark img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .nav-brand-word { display: inline-flex; align-items: center; flex-shrink: 0; }
-.nav-brand-word img { display: block; height: 34px; width: auto; }
+.nav-brand-word img { display: block; height: 20px; width: auto; }
 .nav-links {
   display: flex;
   gap: 28px;
@@ -302,6 +303,9 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
 @media (max-width: 1180px) {
   .nav-phone { display: none; }
 }
+@media (max-width: 1040px) {
+  .nav-brand-word { display: none; }
+}
 @media (max-width: 980px) {
   .nav-inner { grid-template-columns: 1fr auto; }
   .nav-links { display: none; }
@@ -310,7 +314,6 @@ button { font: inherit; background: none; border: 0; cursor: pointer; color: inh
   .nav-toggle { display: inline-flex; }
 }
 @media (max-width: 640px) {
-  .nav-brand-word { display: none; }
   .nav-cta { display: none; }
   .nav-right .btn.nav-cta { display: none; }
 }
