@@ -14,28 +14,70 @@
   function mountNav(activeKey) {
     const host = document.querySelector('[data-nav]');
     if (!host) return;
-    const links = SITE_NAV.map(n => {
+    const linkHTML = (cls) => SITE_NAV.map(n => {
       const target = n.external ? ' target="_blank" rel="noopener"' : '';
-      return `<a class="nav-link ${n.key === activeKey ? 'active' : ''}" href="${n.href}"${target}>${n.label}</a>`;
+      return `<a class="${cls} ${n.key === activeKey ? 'active' : ''}" href="${n.href}"${target}>${n.label}</a>`;
     }).join('');
     host.innerHTML = `
-      <nav class="nav">
+      <nav class="nav" id="site-nav">
         <div class="nav-inner">
           <a class="nav-brand" href="index.html">
             <span class="nav-brand-mark"><img src="images/logo-mark-dark.png" alt="BLS"/></span>
             <span class="nav-brand-word"><img src="images/logo-word-dark.png" alt="Better Living Systems"/></span>
           </a>
-          <div class="nav-links">${links}</div>
+          <div class="nav-links">${linkHTML('nav-link')}</div>
           <div class="nav-right">
             <div class="nav-phone">Central Florida · <strong>(407) 696-4411</strong></div>
-            <a class="btn" href="contact.html">
+            <a class="btn nav-cta" href="contact.html">
               Design Inquiry
               <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
             </a>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+              <svg class="nav-toggle-open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              <svg class="nav-toggle-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+          <div class="nav-drawer-inner">
+            <div class="nav-drawer-links">${linkHTML('nav-drawer-link')}</div>
+            <div class="nav-drawer-foot">
+              <div class="nav-phone-m">Central Florida · <strong>(407) 696-4411</strong></div>
+              <a class="btn btn-brass nav-drawer-cta" href="contact.html">
+                Design Inquiry
+                <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
     `;
+  }
+
+  function initNav() {
+    const nav = document.getElementById('site-nav');
+    if (!nav) return;
+    const toggle = nav.querySelector('.nav-toggle');
+    const drawer = nav.querySelector('.nav-drawer');
+    if (!toggle || !drawer) return;
+
+    function setOpen(open) {
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      drawer.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-open')));
+    drawer.addEventListener('click', (e) => {
+      if (e.target.closest('.nav-drawer-link, .nav-drawer-cta')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) setOpen(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980 && nav.classList.contains('is-open')) setOpen(false);
+    });
   }
 
   function mountFooter() {
@@ -129,12 +171,13 @@
     update();
   }
 
-  window.BLS = { mountNav, mountFooter, initReveal, initParallax };
+  window.BLS = { mountNav, mountFooter, initNav, initReveal, initParallax };
 
   document.addEventListener('DOMContentLoaded', () => {
     const active = document.body.dataset.page;
     mountNav(active);
     mountFooter();
+    initNav();
     initReveal();
     initParallax();
   });
