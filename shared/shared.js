@@ -87,7 +87,7 @@
           </div>
           <div class="footer-bottom">
             <div>© 2026 Better Living Systems · Family-owned since 1979</div>
-            <div>Licensed · Insured · FL EF20000123</div>
+            <div>Licensed · Insured · FL EF20001638</div>
           </div>
         </div>
       </footer>
