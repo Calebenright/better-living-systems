@@ -126,7 +126,7 @@
     .inv { border-top: 1px solid var(--ink); }
     .inv-row {
       display: grid;
-      grid-template-columns: 60px 1fr auto;
+      grid-template-columns: 60px 1fr;
       gap: 24px;
       padding: 24px 0;
       border-bottom: 1px solid var(--line);
@@ -293,12 +293,12 @@
     .book {
       background: var(--ink);
       color: var(--ivory);
-      padding: clamp(100px, 12vw, 180px) 0;
+      padding: clamp(80px, 10vw, 140px) 0;
     }
     .book-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: clamp(48px, 8vw, 120px);
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(48px, 6vw, 96px);
       align-items: start;
     }
     .book-left .eyebrow { color: var(--brass-2); margin-bottom: 24px; }
@@ -309,6 +309,7 @@
       letter-spacing: -0.025em;
       margin-bottom: 24px;
       max-width: 14ch;
+      color: var(--ivory);
     }
     .book-left h2 em { color: var(--brass-soft); font-style: italic; }
     .book-left p {
@@ -324,81 +325,123 @@
       border-top: 1px solid rgba(255,255,255,0.12);
     }
     .book-left .phone .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-2); margin-bottom: 12px; }
-    .book-left .phone .v { font-family: var(--serif); font-size: 40px; letter-spacing: -0.02em; }
+    .book-left .phone .v { font-family: var(--serif); font-size: 40px; letter-spacing: -0.02em; color: var(--ivory); }
     .book-left .phone .d { font-size: 13px; color: rgba(244,239,230,0.6); margin-top: 6px; }
 
-    .bform {
-      background: rgba(244, 239, 230, 0.04);
-      border: 1px solid rgba(244, 239, 230, 0.12);
-      padding: clamp(28px, 4vw, 48px);
+    /* ---- Quote flow (matches contact page) ---- */
+    .qform {
+      background: var(--ivory);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      padding: clamp(32px, 5vw, 64px);
+      min-height: 620px;
+      position: relative;
     }
-    .bform .eyebrow { color: var(--brass-2); margin-bottom: 24px; }
-    .bform h3 {
+    .qprogress { display: flex; gap: 8px; margin-bottom: 48px; }
+    .qdot { flex: 1; height: 2px; background: var(--line); border-radius: 2px; transition: background .4s; }
+    .qdot.active { background: var(--brass); }
+    .qdot.done { background: var(--ink); }
+    .qoptnote { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin: -32px 0 40px; }
+    .qstep { display: none; animation: qslide .4s ease; }
+    .qstep.active { display: block; }
+    @keyframes qslide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .qnum {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 24px;
+    }
+    .qask {
       font-family: var(--serif);
-      font-size: clamp(28px, 3vw, 40px);
+      font-size: clamp(32px, 3.6vw, 52px);
       line-height: 1.05;
       letter-spacing: -0.02em;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      max-width: 16ch;
     }
-    .bform h3 em { color: var(--brass-soft); font-style: italic; }
-    .bfield { margin-bottom: 20px; }
-    .bfield .label {
+    .qask em { color: var(--brass); font-style: italic; }
+    .qhelp {
+      font-size: 15px;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+      max-width: 46ch;
+      line-height: 1.6;
+    }
+    .qopts { display: flex; flex-direction: column; gap: 10px; }
+    .qopt {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all .22s;
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+      color: var(--ink);
+      font-family: inherit;
+    }
+    .qopt:hover { border-color: var(--ink); transform: translateX(4px); }
+    .qopt.selected { border-color: var(--brass); background: rgba(139, 111, 71, 0.06); color: var(--brass); }
+    .qopt .n { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-soft); }
+    .qopt.selected .n { color: var(--brass); }
+    .qinput {
+      width: 100%;
+      padding: 20px 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font: inherit;
+      font-size: 16px;
+      color: var(--ink);
+      font-family: inherit;
+      transition: border-color .2s;
+    }
+    .qinput:focus { outline: none; border-color: var(--brass); }
+    textarea.qinput { min-height: 140px; resize: vertical; }
+    .qrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .qrow + .qrow { margin-top: 12px; }
+    .qnav { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+    .qnav-left { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+    .qback {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--brass-2);
-      margin-bottom: 10px;
-    }
-    .bchips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .bchip {
-      font-family: var(--sans);
-      font-size: 13px;
-      padding: 10px 16px;
-      border: 1px solid rgba(244, 239, 230, 0.2);
-      border-radius: 999px;
+      color: var(--ink-soft);
       background: transparent;
-      color: var(--ivory);
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .bchip:hover { border-color: var(--brass-2); }
-    .bchip.on { background: var(--brass); border-color: var(--brass); color: var(--ivory); }
-    .binput {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(244, 239, 230, 0.06);
-      border: 1px solid rgba(244, 239, 230, 0.14);
-      color: var(--ivory);
-      font: inherit;
-      font-size: 15px;
-      transition: border-color .2s, background .2s;
-    }
-    .binput::placeholder { color: rgba(244,239,230,0.35); }
-    .binput:focus { outline: none; border-color: var(--brass-2); background: rgba(244,239,230,0.1); }
-    .brow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .bform .submit {
-      margin-top: 24px;
-      width: 100%;
-      padding: 18px 24px;
-      background: var(--brass);
       border: 0;
-      color: var(--ivory);
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      font-weight: 500;
       cursor: pointer;
-      transition: background .2s;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
+      padding: 8px 0;
     }
-    .bform .submit:hover { background: var(--brass-2); }
+    .qback:hover { color: var(--brass); }
+    .qback[disabled] { opacity: 0.3; pointer-events: none; }
+    .qsuccess { display: none; }
+    .qsuccess.show { display: block; }
+    .qsuccess .qnum { color: var(--brass); }
+    .qsuccess h3 { font-family: var(--serif); font-size: clamp(36px, 4.2vw, 56px); line-height: 1; letter-spacing: -0.025em; margin-bottom: 20px; }
+    .qsuccess h3 em { color: var(--brass); font-style: italic; }
+    .qsuccess .lede { font-size: 17px; color: var(--ink-2); line-height: 1.65; max-width: 46ch; margin-bottom: 32px; }
+    .qsuccess .lede em { color: var(--brass); font-style: italic; }
+    .summary {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px 32px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+    .summary div { padding: 10px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 16px; }
+    .summary div:last-child { border: 0; }
+    .summary .k { color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.12em; font-size: 10px; }
+    .summary .v { color: var(--ink); text-align: right; font-family: var(--serif); font-size: 15px; letter-spacing: 0; }
 
     @media (max-width: 900px) {
       .book-grid { grid-template-columns: 1fr; gap: 48px; }
-      .brow { grid-template-columns: 1fr; }
+      .qrow { grid-template-columns: 1fr; }
     }
 
     /* ---- Directions ---- */
@@ -492,13 +535,13 @@
 
   <!-- HERO -->
   <section class="rh" data-screen-label="Showroom hero">
-    <div class="rh-bg" style="background-image: url('images/showroom-living.jpg'); filter: saturate(0.85) brightness(0.82);"></div>
+    <div class="rh-bg" style="background-image: url('images/showroom-hero.jpg'); filter: saturate(0.85) brightness(0.82);"></div>
 
     <div class="rh-top">
       <div class="wrap">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
           <div class="rh-eyebrow">The Showroom</div>
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--brass-soft); text-transform: uppercase;">Plate No. 01 · Orlando, FL</div>
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--brass-soft); text-transform: uppercase;">Image No. 01 · Orlando, FL</div>
         </div>
       </div>
     </div>
@@ -509,7 +552,7 @@
         <div class="rh-meta">
           <div>
             <div class="k">Address</div>
-            <div class="v">Orlando, FL<br/>(exact with confirmation)</div>
+            <div class="v">4409 Parkbreeze Ct<br/>Orlando, FL 32808</div>
           </div>
           <div>
             <div class="k">Hours</div>
@@ -541,42 +584,36 @@
             <div class="name">Keypad <em>wall</em>
               <span class="sub">Every finish, every engraving color, wired to a working dimming load.</span>
             </div>
-            <div class="count"><strong>34</strong> keypads</div>
           </div>
           <div class="inv-row">
             <div class="n">§ 02</div>
             <div class="name">Fabric <em>library</em>
               <span class="sub">Roller, drapery, and venetian fabrics, with true drape samples to backlight.</span>
             </div>
-            <div class="count"><strong>140+</strong> swatches</div>
           </div>
           <div class="inv-row">
             <div class="n">§ 03</div>
-            <div class="name">Listening <em>bay</em>
-              <span class="sub">Three calibrated systems, A/B switchable, treated room with known targets.</span>
+            <div class="name">Lighting &amp; <em>fixtures</em>
+              <span class="sub">Fixtures that set &amp; meet the standard.</span>
             </div>
-            <div class="count"><strong>3</strong> voicings</div>
           </div>
           <div class="inv-row">
             <div class="n">§ 04</div>
             <div class="name">Display <em>wall</em>
               <span class="sub">A recessed box, a painted frame, a masked bezel, side by side at eye height.</span>
             </div>
-            <div class="count"><strong>4</strong> treatments</div>
           </div>
           <div class="inv-row">
             <div class="n">§ 05</div>
             <div class="name">Control <em>surfaces</em>
               <span class="sub">App on tablet, wall panel, voice, and keypad, all on the same live system.</span>
             </div>
-            <div class="count"><strong>5</strong> interfaces</div>
           </div>
           <div class="inv-row">
             <div class="n">§ 06</div>
             <div class="name">Media <em>closet</em>
               <span class="sub">A fully cabled closet with its doors open. The part of the house you will never see.</span>
             </div>
-            <div class="count"><strong>1</strong> to study</div>
           </div>
         </div>
       </div>
@@ -589,43 +626,43 @@
       <div class="plates-head">
         <div class="reveal">
           <div class="eyebrow">On the floor</div>
-          <h2>A studio, <em>not a showroom</em> in the car-dealership sense.</h2>
+          <h2>A studio, <em>not a showroom</em>.</h2>
         </div>
-        <p class="reveal reveal-delay-2">No velvet ropes, no spotlit pedestals. The lights are on the dimmers they are meant to be on, and everything is connected to everything else.</p>
+        <p class="reveal reveal-delay-2">Come experience our products first-hand, from lighting and shades to the golf simulator.</p>
       </div>
 
       <div class="plates-grid">
         <figure class="plate pf reveal">
           <div class="photo tone-warm grain"><img src="images/showroom-long.jpg" alt="Long view through the showroom"/></div>
           <div class="title">The showroom <em>floor</em></div>
-          <div class="meta">Plate No. 02</div>
+          <div class="meta">Image No. 02</div>
         </figure>
 
         <figure class="plate pc reveal">
-          <div class="photo tone-dark grain"><img src="images/listening-bay.jpg" alt="Listening bay"/></div>
-          <div class="title">The listening <em>room</em></div>
-          <div class="meta">Plate No. 03</div>
+          <div class="photo tone-dark grain"><img src="images/golf-simulator.jpg" alt="Golf simulator"/></div>
+          <div class="title">The golf <em>simulator</em></div>
+          <div class="meta">Image No. 03</div>
         </figure>
         <figure class="plate pd reveal reveal-delay-2">
-          <div class="photo tone-warm grain"><img src="images/consult-table.jpg" alt="Consultation desk in front of a Frame-mode display"/></div>
-          <div class="title">Consultation <em>desk</em></div>
-          <div class="meta">Plate No. 04</div>
+          <div class="photo tone-warm grain"><img src="images/consult-table.jpg" alt="TVs and entertainment"/></div>
+          <div class="title">TV's &amp; <em>Entertainment</em></div>
+          <div class="meta">Image No. 04</div>
         </figure>
         <figure class="plate pe reveal reveal-delay-3">
           <div class="photo tone-warm grain"><img src="images/fabric-library.jpg" alt="Backlit Lutron shade-fabric library"/></div>
           <div class="title">Shade <em>fabrics</em></div>
-          <div class="meta">Plate No. 05</div>
+          <div class="meta">Image No. 05</div>
         </figure>
 
         <figure class="plate pa reveal">
           <div class="photo tone-warm grain"><img src="images/keypad-brass.jpg" alt="Control surfaces"/></div>
           <div class="title">Keypad <em>finishes</em></div>
-          <div class="meta">Plate No. 06</div>
+          <div class="meta">Image No. 06</div>
         </figure>
         <figure class="plate pb reveal reveal-delay-2">
           <div class="photo tone-warm grain"><img src="images/keypad-scene.jpg" alt="Scene keypad"/></div>
           <div class="title">Scene <em>keypad</em></div>
-          <div class="meta">Plate No. 07</div>
+          <div class="meta">Image No. 07</div>
         </figure>
       </div>
     </div>
@@ -637,8 +674,8 @@
       <div class="book-grid">
         <div class="book-left reveal">
           <div class="eyebrow">Book a visit</div>
-          <h2>Hold an hour, <em>in person.</em></h2>
-          <p>Appointments are one hour, with an optional second half-hour if we're deep in a question. Bring your co-conspirator, your architect, your kid who cares more about acoustics than you do. Parking is on site.</p>
+          <h2>Plan <em>a visit.</em></h2>
+          <p>Tell us about the project below. We'll text back to set a time. Bring your architect, your sketches, the question that brought you here.</p>
 
           <div class="phone">
             <div class="k">Or call the studio</div>
@@ -647,54 +684,95 @@
           </div>
         </div>
 
-        <form class="bform" id="bform" onsubmit="return false;">
-          <div class="eyebrow">A short request</div>
-          <h3>Tell us <em>when</em> works.</h3>
+        <form class="qform" id="qform" onsubmit="return false;">
+          <div class="qprogress">
+            <div class="qdot active" data-dot="0"></div>
+            <div class="qdot" data-dot="1"></div>
+            <div class="qdot" data-dot="2"></div>
+            <div class="qdot" data-dot="3"></div>
+          </div>
+          <div class="qoptnote">All fields optional &middot; skip what doesn't apply</div>
 
-          <div class="bfield">
-            <div class="label">Preferred day</div>
-            <div class="bchips" data-field="day">
-              <button type="button" class="bchip">Weekday morning</button>
-              <button type="button" class="bchip">Weekday afternoon</button>
-              <button type="button" class="bchip">Saturday</button>
-              <button type="button" class="bchip">Any time</button>
+          <div class="qstep active" data-step="0">
+            <div class="qnum">§ 01 of 04</div>
+            <div class="qask">First, what are you <em>making?</em></div>
+            <div class="qhelp">Start with the shape of the project. We'll get to the specifics later.</div>
+            <div class="qopts">
+              <button type="button" class="qopt" data-field="project" data-value="New build">
+                <span>A new build, ground up</span><span class="n">From plans</span>
+              </button>
+              <button type="button" class="qopt" data-field="project" data-value="Whole-home renovation">
+                <span>A whole-home renovation</span><span class="n">Retrofit</span>
+              </button>
+              <button type="button" class="qopt" data-field="project" data-value="A single room or space">
+                <span>A single room or space</span><span class="n">Focused</span>
+              </button>
+              <button type="button" class="qopt" data-field="project" data-value="Adding to an existing system">
+                <span>Adding to something we already have</span><span class="n">Add-on</span>
+              </button>
+              <button type="button" class="qopt" data-field="project" data-value="Not sure yet">
+                <span>Not sure yet, let's talk it through</span><span class="n">Open</span>
+              </button>
             </div>
           </div>
 
-          <div class="bfield">
-            <div class="label">What you're working on</div>
-            <div class="bchips" data-field="scope">
-              <button type="button" class="bchip">New build</button>
-              <button type="button" class="bchip">Renovation</button>
-              <button type="button" class="bchip">A single room</button>
-              <button type="button" class="bchip">Exploring</button>
+          <div class="qstep" data-step="1">
+            <div class="qnum">§ 02 of 04</div>
+            <div class="qask">Where is <em>the house?</em></div>
+            <div class="qhelp">A city or neighborhood is plenty. Address is only useful once we're scheduling a walkthrough.</div>
+            <input class="qinput" data-field="location" placeholder="e.g. Windermere, Lake Nona, or Mount Dora" autocomplete="off" />
+            <div class="qhelp" style="margin-top: 24px; margin-bottom: 16px;">And how's the timing?</div>
+            <div class="qopts">
+              <button type="button" class="qopt" data-field="timing" data-value="Under construction now">
+                <span>Under construction right now</span><span class="n">Active</span>
+              </button>
+              <button type="button" class="qopt" data-field="timing" data-value="Breaking ground soon">
+                <span>Breaking ground in the next few months</span><span class="n">Soon</span>
+              </button>
+              <button type="button" class="qopt" data-field="timing" data-value="Still planning">
+                <span>Still in the planning phase</span><span class="n">Planning</span>
+              </button>
+              <button type="button" class="qopt" data-field="timing" data-value="Exploring">
+                <span>Exploring for a future project</span><span class="n">Research</span>
+              </button>
             </div>
           </div>
 
-          <div class="bfield">
-            <div class="label">How to reach you</div>
-            <div class="brow">
-              <input class="binput" placeholder="First name" autocomplete="given-name" />
-              <input class="binput" placeholder="Last name" autocomplete="family-name" />
+          <div class="qstep" data-step="2">
+            <div class="qnum">§ 03 of 04</div>
+            <div class="qask">What would you <em>like us</em> to know?</div>
+            <div class="qhelp">Size, style, the rooms that matter most, the things you've seen elsewhere and liked. Anything at all. A few sentences is perfect.</div>
+            <textarea class="qinput" data-field="notes" placeholder="For example: 6,400 sq ft on the lake, architect is already on board, we'd like lighting and shades drawn with the house. Interested in a media room, no dedicated theater needed."></textarea>
+          </div>
+
+          <div class="qstep" data-step="3">
+            <div class="qnum">§ 04 of 04</div>
+            <div class="qask">How should we <em>reach</em> you?</div>
+            <div class="qhelp">We'll text back within thirty minutes to confirm, then schedule the first call at a time that works.</div>
+            <div class="qrow">
+              <input class="qinput" data-field="firstName" placeholder="First name" autocomplete="given-name" />
+              <input class="qinput" data-field="lastName" placeholder="Last name" autocomplete="family-name" />
             </div>
-            <div class="brow" style="margin-top: 12px;">
-              <input class="binput" type="tel" placeholder="Mobile (for text confirmation)" autocomplete="tel" />
-              <input class="binput" type="email" placeholder="Email" autocomplete="email" />
+            <div class="qrow">
+              <input class="qinput" data-field="phone" type="tel" placeholder="Mobile (for the text)" autocomplete="tel" />
+              <input class="qinput" data-field="email" type="email" placeholder="Email" autocomplete="email" />
             </div>
           </div>
 
-          <div class="bfield">
-            <div class="label">Anything we should know</div>
-            <textarea class="binput" rows="3" placeholder="Optional. Architect's name, a sketch, a question, a room that matters."></textarea>
+          <div class="qsuccess" id="qsuccess">
+            <div class="qnum">✓ Received</div>
+            <h3>Thank you, <em id="qname">neighbor</em>.</h3>
+            <p class="lede">You'll have a <em>confirmation text within thirty minutes</em>, from a real person in Orlando. After that we'll set a short call to get acquainted, and the first drawings can start from there.</p>
+            <div class="summary" id="qsummary"></div>
           </div>
 
-          <button type="button" class="submit" id="bsubmit">
-            Request an appointment
-            <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
-          </button>
-
-          <div id="bsuccess" style="display:none; margin-top: 24px; padding: 16px 20px; border: 1px solid rgba(201,184,150,0.4); background: rgba(201,184,150,0.08); font-size: 14px; color: var(--brass-soft); line-height: 1.55;">
-            ✓ Received. You'll have a confirmation text within thirty minutes, from a real person at the studio.
+          <div class="qnav" id="qnav">
+            <button type="button" class="qback" id="qback" disabled>← Back</button>
+            <div class="qnav-left"><span id="qstepn">01</span> / 04</div>
+            <button type="button" class="btn btn-brass" id="qnext">
+              Continue
+              <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>
+            </button>
           </div>
         </form>
       </div>
@@ -707,21 +785,21 @@
       <div class="dir-grid">
         <div class="dir-left reveal">
           <div class="eyebrow">Getting here</div>
-          <h2>Just off <em>Plant Street.</em></h2>
-          <p style="font-size: 17px; line-height: 1.7; color: var(--ink-2); max-width: 48ch;">The studio is on a tree-lined side street a short drive from downtown Orlando, and ten minutes off the Turnpike. Ample parking on site, shaded.</p>
+          <h2>Just off <em>Pine Hills Road.</em></h2>
+          <p style="font-size: 17px; line-height: 1.7; color: var(--ink-2); max-width: 48ch;">The studio sits on a quiet cul-de-sac in west Orlando, minutes off the 408 expressway. Ample parking on site, shaded.</p>
 
           <div class="dir-detail">
             <div>
               <div class="k">From Downtown Orlando</div>
-              <div class="v">~ 22 minutes<br/>408 West, exit Good Homes</div>
+              <div class="v">~ 15 minutes<br/>408 West, exit Pine Hills Rd</div>
             </div>
             <div>
               <div class="k">From Windermere / Dr. Phillips</div>
-              <div class="v">~ 15 minutes<br/>via Winter Garden-Vineland</div>
+              <div class="v">~ 20 minutes<br/>via Apopka-Vineland</div>
             </div>
             <div>
               <div class="k">From MCO (Airport)</div>
-              <div class="v">~ 35 minutes<br/>528 West then 408</div>
+              <div class="v">~ 30 minutes<br/>528 West then 408</div>
             </div>
           </div>
         </div>
@@ -746,12 +824,12 @@
             <line x1="300" y1="0" x2="300" y2="400" stroke="#4a463e" stroke-width="0.7" opacity="0.5"/>
 
             <!-- A little lake -->
-            <ellipse cx="325" cy="330" rx="52" ry="40" fill="#c9b896" opacity="0.45" stroke="#8b6f47" stroke-width="0.6"/>
-            <text x="325" y="335" font-family="Instrument Serif" font-size="11" font-style="italic" fill="#4a463e" text-anchor="middle">Lake Apopka</text>
+            <ellipse cx="325" cy="330" rx="42" ry="32" fill="#c9b896" opacity="0.45" stroke="#8b6f47" stroke-width="0.6"/>
+            <text x="325" y="335" font-family="Instrument Serif" font-size="11" font-style="italic" fill="#4a463e" text-anchor="middle">Lake Lawne</text>
 
-            <!-- Plant Street label -->
-            <text x="10" y="195" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#4a463e">W PLANT ST</text>
-            <text x="205" y="14" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#4a463e">DILLARD ST</text>
+            <!-- Street labels -->
+            <text x="10" y="195" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#4a463e">SILVER STAR RD</text>
+            <text x="205" y="14" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#4a463e">PINE HILLS RD</text>
 
             <!-- Pin location -->
             <circle cx="220" cy="178" r="22" fill="none" stroke="#8b6f47" stroke-width="0.8" opacity="0.3"/>
@@ -798,26 +876,76 @@
   <script src="shared/shared.js"></script>
   <script>
     (function () {
-      // chip multi-select-groups are single-select in this form
-      document.querySelectorAll('.bchips').forEach(group => {
-        group.addEventListener('click', e => {
-          const btn = e.target.closest('.bchip');
-          if (!btn) return;
-          group.querySelectorAll('.bchip').forEach(c => c.classList.remove('on'));
-          btn.classList.add('on');
+      const form = document.getElementById('qform');
+      if (!form) return;
+      const steps = form.querySelectorAll('.qstep');
+      const dots = form.querySelectorAll('.qdot');
+      const back = document.getElementById('qback');
+      const next = document.getElementById('qnext');
+      const stepn = document.getElementById('qstepn');
+      const nav = document.getElementById('qnav');
+      const success = document.getElementById('qsuccess');
+      const data = {};
+      let idx = 0;
+      const TOTAL = steps.length;
+
+      function render() {
+        steps.forEach((s, i) => s.classList.toggle('active', i === idx));
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+          d.classList.toggle('done', i < idx);
+        });
+        stepn.textContent = String(idx + 1).padStart(2, '0');
+        back.toggleAttribute('disabled', idx === 0);
+        next.innerHTML = (idx === TOTAL - 1)
+          ? `Send <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>`
+          : `Continue <svg class="arr" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg>`;
+      }
+
+      form.querySelectorAll('.qopt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const field = btn.dataset.field;
+          const value = btn.dataset.value;
+          form.querySelectorAll(`.qopt[data-field="${field}"]`).forEach(o => o.classList.remove('selected'));
+          btn.classList.add('selected');
+          data[field] = value;
+          setTimeout(() => {
+            if (idx === 0 || (idx === 1 && field === 'timing') || idx === 3) {
+              if (idx < TOTAL - 1) { idx++; render(); } else { submit(); }
+            }
+          }, 260);
         });
       });
-      // success fake
-      const submit = document.getElementById('bsubmit');
-      const success = document.getElementById('bsuccess');
-      if (submit) {
-        submit.addEventListener('click', () => {
-          success.style.display = 'block';
-          submit.textContent = 'Sent ✓';
-          submit.style.background = 'var(--ink-2)';
-          submit.style.pointerEvents = 'none';
-        });
+
+      form.querySelectorAll('.qinput').forEach(el => {
+        el.addEventListener('input', e => { data[e.target.dataset.field] = e.target.value; });
+      });
+
+      next.addEventListener('click', () => {
+        if (idx < TOTAL - 1) { idx++; render(); }
+        else { submit(); }
+      });
+      back.addEventListener('click', () => { if (idx > 0) { idx--; render(); } });
+
+      function submit() {
+        form.querySelectorAll('.qstep').forEach(s => s.classList.remove('active'));
+        form.querySelector('.qprogress').style.display = 'none';
+        nav.style.display = 'none';
+        success.classList.add('show');
+        document.getElementById('qname').textContent = data.firstName || 'neighbor';
+        const summary = document.getElementById('qsummary');
+        const fields = [
+          ['Project', data.project],
+          ['Location', data.location],
+          ['Timing', data.timing],
+          ['Reaching', [data.phone, data.email].filter(Boolean).join(' · ')],
+        ];
+        summary.innerHTML = fields.filter(f => f[1]).map(([k,v]) =>
+          `<div><span class="k">${k}</span><span class="v">${v}</span></div>`
+        ).join('');
       }
+
+      render();
     })();
   </script>
 </body>

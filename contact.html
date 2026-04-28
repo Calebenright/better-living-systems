@@ -50,6 +50,7 @@
     .qdot { flex: 1; height: 2px; background: var(--line); border-radius: 2px; transition: background .4s; }
     .qdot.active { background: var(--brass); }
     .qdot.done { background: var(--ink); }
+    .qoptnote { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin: -32px 0 40px; }
 
     .qstep { display: none; animation: slide .4s ease; }
     .qstep.active { display: block; }
@@ -274,6 +275,7 @@
             <div class="qdot" data-dot="2"></div>
             <div class="qdot" data-dot="3"></div>
           </div>
+          <div class="qoptnote">All fields optional &middot; skip what doesn't apply</div>
 
           <!-- Step 0: What you're making -->
           <div class="qstep active" data-step="0">
@@ -380,7 +382,7 @@
           </div>
           <div class="qcard">
             <div class="k">Showroom</div>
-            <div class="v" style="font-size: 20px;">Orlando, FL</div>
+            <div class="v" style="font-size: 20px;">4409 Parkbreeze Ct<br/>Orlando, FL 32808</div>
             <div class="v-sm">By appointment. Walk-ins welcome when the lights are on.</div>
           </div>
         </aside>
@@ -400,7 +402,7 @@
           <div class="sr-detail">
             <div>
               <div class="k">Address</div>
-              <div class="v">Orlando, FL<br/>(exact on confirmation)</div>
+              <div class="v">4409 Parkbreeze Ct<br/>Orlando, FL 32808</div>
             </div>
             <div>
               <div class="k">Hours</div>
@@ -418,7 +420,7 @@
         </div>
         <figure class="sr-img photo tone-warm grain">
           <img src="images/showroom-living.jpg" alt="BLS showroom · Orlando" />
-          <figcaption class="cap">Plate No. 00 · Showroom, Orlando</figcaption>
+          <figcaption class="cap">Image 02 · Showroom, Orlando</figcaption>
         </figure>
       </div>
     </div>
