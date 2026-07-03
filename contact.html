@@ -482,7 +482,43 @@
       });
       back.addEventListener('click', () => { if (idx > 0) { idx--; render(); } });
 
+      const FORM_ENDPOINT = 'https://formspree.io/f/xzdyavpn';
+      let sending = false;
+
       function submit() {
+        if (sending) return;
+        sending = true;
+        const originalLabel = next.innerHTML;
+        next.setAttribute('disabled', '');
+        next.textContent = 'Sending…';
+
+        fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data),
+        })
+          .then(res => {
+            if (!res.ok) throw new Error('Request failed');
+            showSuccess();
+          })
+          .catch(() => {
+            sending = false;
+            next.removeAttribute('disabled');
+            next.innerHTML = originalLabel;
+            let err = form.querySelector('.qerror');
+            if (!err) {
+              err = document.createElement('div');
+              err.className = 'qerror';
+              err.style.color = '#b5453f';
+              err.style.fontSize = '14px';
+              err.style.marginTop = '12px';
+              nav.insertAdjacentElement('afterend', err);
+            }
+            err.textContent = "That didn't go through, please try again or call (407) 696-4411.";
+          });
+      }
+
+      function showSuccess() {
         form.querySelectorAll('.qstep').forEach(s => s.classList.remove('active'));
         form.querySelector('.qprogress').style.display = 'none';
         nav.style.display = 'none';
