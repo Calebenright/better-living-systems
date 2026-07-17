@@ -95,7 +95,7 @@
               </p>
               <div style="margin-top:24px; font-family:var(--mono); font-size:12px; letter-spacing:0.04em; color:var(--brass-2);">
                 <div>(407) 696-4411</div>
-                <div style="color:var(--ivory-2); margin-top:4px;">info@betterlivingsystems.com</div>
+                <div style="color:var(--ivory-2); margin-top:4px;">sales@betterlivingsystems.com</div>
                 <div style="color:var(--ivory-2); margin-top:4px;">Central Florida</div>
               </div>
             </div>
